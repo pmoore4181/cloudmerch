@@ -2,10 +2,8 @@ const mongoose = require('mongoose');
 
 const db = mongoose.connection;
 
-mongoose.Promise = global.Promise;
-
 before((done) => {
-  mongoose.connect('mongodb://localhost/users_test', {
+  mongoose.connect('mongodb://localhost/shopping_cart', {
     useMongoClient: true,
   });
 
@@ -14,7 +12,7 @@ before((done) => {
       console.warn('Warning', error);
     })
     .once('open', () => {
-      console.log('Connected to users_test database!');
+      console.log('Connected to shopping_cart database!');
       done();
     });
 });
