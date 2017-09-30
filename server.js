@@ -1,10 +1,35 @@
+// Dependencies ================================================
+const express = require("express");
+const bodyParser = require("body-parser");
+const logger = require("morgan");
 const mongoose = require('mongoose');
+const user = require('./routes/users')
+
+// Create Instance of Express
+var app = express();
+var PORT = process.env.PORT || 3000;
+
+// Run Morgan and BodyParser
+app.use(logger("dev"));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.text());
+app.use(bodyParser.json({ type: "application/vnd.api+json" }));
+
+// require schemas
+var Product = require('./database/models/product');
+var Seller = require('./database/models/seller');
+var Store = require('./database/models/store');
+
+app.use(express.static("./shopping-cart-app/src"));
+
+
+// MONGODB STUFF ===============================================
 
 const db = mongoose.connection;
-
 mongoose.Promise = global.Promise;
 
-before((done) => {
+// before((done) => {
   mongoose.connect('mongodb://localhost/users_test', {
     useMongoClient: true,
   });
@@ -15,6 +40,15 @@ before((done) => {
     })
     .once('open', () => {
       console.log('Connected to users_test database!');
-      done();
+      // done();
     });
-});
+// });
+
+// ROUTE TO INDEX ==============================================
+app.use('/', user);
+
+
+// LISTEN TO process.env.PORT or 3000 ==========================
+app.listen(PORT, () => {
+  console.log('listening on port ' + PORT);
+})
