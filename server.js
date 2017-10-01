@@ -24,6 +24,7 @@ var Store = require('./database/models/store');
 app.use(express.static("./shopping-cart-app/src"));
 
 
+
 // MONGODB STUFF ===============================================
 
 const db = mongoose.connection;
