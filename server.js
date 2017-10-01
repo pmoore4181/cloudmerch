@@ -3,11 +3,15 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const logger = require("morgan");
 const mongoose = require('mongoose');
-const user = require('./routes/users')
+// const user = require('./routes/users')
+
+var path = require('path');
+
+var users = require('./routes/users');
 
 // Create Instance of Express
 var app = express();
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 3001;
 
 // Run Morgan and BodyParser
 app.use(logger("dev"));
@@ -46,7 +50,8 @@ mongoose.Promise = global.Promise;
 // });
 
 // ROUTE TO INDEX ==============================================
-app.use('/', user);
+// app.use('/', user);
+app.use('/users', users);
 
 
 // LISTEN TO process.env.PORT or 3000 ==========================
