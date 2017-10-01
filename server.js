@@ -35,7 +35,7 @@ const db = mongoose.connection;
 mongoose.Promise = global.Promise;
 
 // before((done) => {
-  mongoose.connect('mongodb://localhost/users_test', {
+  mongoose.connect('mongodb://shoppingCart:shoppingCartPW1@ds155674.mlab.com:55674/shoppingcart', {
     useMongoClient: true,
   });
 
@@ -44,7 +44,7 @@ mongoose.Promise = global.Promise;
       console.warn('Warning', error);
     })
     .once('open', () => {
-      console.log('Connected to users_test database!');
+      console.log('Connected to mLab database');
       // done();
     });
 // });
