@@ -12,12 +12,16 @@
     "react-scripts": "1.0.14"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+
+
     "test": "nodemon  --exec 'mocha'",
-    "eject": "react-scripts eject"
+
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "node server.js",
+    "client": "node start-shopping-cart-app.js"
   },
   "devDependencies": {
+    "concurrently": "^3.5.0",
     "eslint": "^4.8.0",
     "eslint-config-airbnb": "^15.1.0",
     "eslint-plugin-import": "^2.7.0",
