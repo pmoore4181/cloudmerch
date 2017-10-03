@@ -1,25 +1,41 @@
-
-
-import React, { Component } from 'react';
-// import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import FriendCard from "./components/FriendCard";
+import Wrapper from "./components/Wrapper";
+import Header from "./components/Header";
+import friends from "./friends.json";
+import "./App.css";
 
 class App extends Component {
-  state = {users: []}
+  // Setting this.state.friends to the friends json array
+  state = {
+    friends
+  };
 
-  componentDidMount() {
-    fetch('/users')
-      .then(res => res.json())
-      .then(users => this.setState({ users }));
-  }
+  removeFriend = id => {
+    // Filter this.state.friends for friends with an id not equal to the id being removed
+    const friends = this.state.friends.filter(friend => friend.id !== id);
+    // Set this.state.friends equal to the new friends array
+    this.setState({ friends });
+  };
 
+  // Map over this.state.friends and render a FriendCard component for each friend object
   render() {
     return (
-      <div className="App">
-        <h1>Users</h1>
-        {this.state.users.map(user =>
-          <div key={user.id}>{user.username}</div>
+     <div>
+        <Header location="Search all stores"/>
+         <Wrapper>
+        {this.state.friends.map(friend => 
+          <FriendCard
+            removeFriend={this.removeFriend}
+            id={friend.id}
+            key={friend.id}
+            name={friend.name}
+            image={friend.image}
+            price={friend.price}
+            location={friend.location}
+          />
         )}
+      </Wrapper>
       </div>
     );
   }
