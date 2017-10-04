@@ -40,9 +40,10 @@
 }
 .storeName{
   font-family: 'Nosifer', cursive;
+  color:;
 }
-.discription{
-  color: #9EC7DD;
+.description{
+  color: #5F7181;
 }
 
 
