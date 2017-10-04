@@ -15,8 +15,8 @@ const StoreCard = props => (
   </div>
     <div className="card-content">
        <p className="storeName">{props.name}</p>
-      <div className="discription">
-        {props.discription}
+      <div className="description">
+        {props.description}
       </div>
     </div>
 

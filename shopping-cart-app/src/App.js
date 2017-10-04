@@ -34,7 +34,7 @@ class App extends Component {
             image1={friend.image1}
             image2={friend.image2}
             image3={friend.image3}
-            discription={friend.discription}
+            description={friend.description}
           />
         )}
       </Wrapper>
