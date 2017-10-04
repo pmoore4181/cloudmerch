@@ -7,6 +7,7 @@ const StoreSchema = new Schema({
   name: String,
   description: String,
   products: [ProductSchema],
+  image: String
 });
 
 module.exports = StoreSchema;
