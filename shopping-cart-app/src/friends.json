@@ -2,83 +2,107 @@
   {
     "id": 1,
     "name": "SpongeBob",
-    "image": "http://placeimg.com/640/480/any",
+    "image1": "http://placeimg.com/640/480/any",
+    "image2": "http://placeimg.com/640/480/any",
+    "image3": "http://placeimg.com/640/480/any",
     "price": "Fry Cook",
     "location": "A Pineapple Under the Sea"
   },
   {
     "id": 2,
     "name": "Mr. Krabs",
-    "image": "http://placeimg.com/640/480/any",
+    "image1": "http://placeimg.com/640/480/any",
+    "image2": "http://placeimg.com/640/480/any",
+    "image3": "http://placeimg.com/640/480/any",
     "price": "Restaurant Owner",
     "location": "A Giant Anchor"
   },
   {
     "id": 3,
     "name": "Squidward",
-    "image": "http://placeimg.com/640/480/any",
+    "image1": "http://placeimg.com/640/480/any",
+    "image2": "http://placeimg.com/640/480/any",
+    "image3": "http://placeimg.com/640/480/any",
     "price": "Cashier",
     "location": "An Easter Island Head"
   },
   {
     "id": 4,
     "name": "Dexter",
-    "image": "http://placeimg.com/640/480/any",
+    "image1": "http://placeimg.com/640/480/any",
+    "image2": "http://placeimg.com/640/480/any",
+    "image3": "http://placeimg.com/640/480/any",
     "price": "Boy Genius",
     "location": "A Secret Laboratory"
   },
   {
     "id": 5,
     "name": "Courage",
-    "image": "http://placeimg.com/640/480/any",
+    "image1": "http://placeimg.com/640/480/any",
+    "image2": "http://placeimg.com/640/480/any",
+    "image3": "http://placeimg.com/640/480/any",
     "price": "A Cowardly Dog",
     "location": "Nowhere, Kansas"
   },
   {
     "id": 6,
     "name": "Doug Funnie",
-    "image": "http://placeimg.com/640/480/any",
+    "image1": "http://placeimg.com/640/480/any",
+    "image2": "http://placeimg.com/640/480/any",
+    "image3": "http://placeimg.com/640/480/any",
     "price": "Student",
     "location": "Bluffington"
   },
   {
     "id": 7,
     "name": "Bugs Bunny",
-    "image": "http://placeimg.com/640/480/any",
+    "image1": "http://placeimg.com/640/480/any",
+    "image2": "http://placeimg.com/640/480/any",
+    "image3": "http://placeimg.com/640/480/any",
     "price": "Looney Toon",
     "location": "A Rabbit Burrow"
   },
   {
     "id": 8,
     "name": "Johnny Bravo",
-    "image": "http://placeimg.com/640/480/any",
+    "image1": "http://placeimg.com/640/480/any",
+    "image2": "http://placeimg.com/640/480/any",
+    "image3": "http://placeimg.com/640/480/any",
     "location": "Aron City"
   },
   {
     "id": 9,
     "name": "Tommy Pickles",
-    "image": "http://placeimg.com/640/480/any",
+    "image1": "http://placeimg.com/640/480/any",
+    "image2": "http://placeimg.com/640/480/any",
+    "image3": "http://placeimg.com/640/480/any",
     "price": "Adventurer",
     "location": "California"
   },
   {
     "id": 10,
     "name": "Rocko",
-    "image": "http://placeimg.com/640/480/any",
+    "image1": "http://placeimg.com/640/480/any",
+    "image2": "http://placeimg.com/640/480/any",
+    "image3": "http://placeimg.com/640/480/any",
     "price": "Cashier",
     "location": "O-Town, California"
   },
   {
     "id": 11,
     "name": "Captain Planet",
-    "image": "http://placeimg.com/640/480/any",
+    "image1": "http://placeimg.com/640/480/any",
+    "image2": "http://placeimg.com/640/480/any",
+    "image3": "http://placeimg.com/640/480/any",
     "price": "Superhero",
     "location": "Earth"
   },
   {
     "id": 12,
     "name": "Ickis",
-    "image": "http://placeimg.com/640/480/any",
+    "image1": "http://placeimg.com/640/480/any",
+    "image2": "http://placeimg.com/640/480/any",
+    "image3": "http://placeimg.com/640/480/any",
     "price": "Ahhhh! A Real Monster!",
     "location": "Under a City Dump"
   }
