@@ -1,21 +1,11 @@
-/*.card {
-  background: #fff;
-  border-radius: 2px;
-  height: 325px;
-  margin: 1rem;
-  position: relative;
-  width: 325px;
-  box-shadow: 0 3px 6px #999, 0 3px 6px #999;
-  text-align: left;
-}*/
 .card {
   height: 324px;
   width: 324px;
   border-radius: 4.5px;
   overflow: hidden;
-}
-.card-image{
-
+  box-shadow: 0 3px 6px #999, 0 3px 6px #999;
+  position: relative;
+  margin-bottom: 25px;
 }
 
 .image1 {
@@ -31,6 +21,28 @@
 }
 .image2 {
   border-bottom: solid 1px white;
+}
+
+.store-image{
+  border: solid 3px white;
+  height: 130px;
+  width: 130px;
+  border-radius: 100%;
+  position: absolute;
+  top: 27%;
+  left: 30%;
+}
+.card-content{
+  position: absolute;
+  top: 60%;
+  text-align: center;
+  width: 100%;
+}
+.storeName{
+  font-family: 'Nosifer', cursive;
+}
+.discription{
+  color: #9EC7DD;
 }
 
 
