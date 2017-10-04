@@ -30,11 +30,11 @@ class App extends Component {
             id={friend.id}
             key={friend.id}
             name={friend.name}
+            storeImage={friend.storeImage}
             image1={friend.image1}
             image2={friend.image2}
             image3={friend.image3}
-            price={friend.price}
-            location={friend.location}
+            discription={friend.discription}
           />
         )}
       </Wrapper>
