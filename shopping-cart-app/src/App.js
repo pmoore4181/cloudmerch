@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import FriendCard from "./components/FriendCard";
+import StoreCard from "./components/StoreCard";
 import Wrapper from "./components/Wrapper";
 import Header from "./components/Header";
 import friends from "./friends.json";
@@ -11,7 +11,7 @@ class App extends Component {
     friends
   };
 
-  removeFriend = id => {
+  removeStore = id => {
     // Filter this.state.friends for friends with an id not equal to the id being removed
     const friends = this.state.friends.filter(friend => friend.id !== id);
     // Set this.state.friends equal to the new friends array
@@ -25,12 +25,14 @@ class App extends Component {
         <Header location="Search all stores"/>
          <Wrapper>
         {this.state.friends.map(friend => 
-          <FriendCard
-            removeFriend={this.removeFriend}
+          <StoreCard
+            removeStore={this.removeStore}
             id={friend.id}
             key={friend.id}
             name={friend.name}
-            image={friend.image}
+            image1={friend.image1}
+            image2={friend.image2}
+            image3={friend.image3}
             price={friend.price}
             location={friend.location}
           />

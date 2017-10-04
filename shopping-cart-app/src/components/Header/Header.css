@@ -7,8 +7,8 @@
 	padding: 0 30px;
 }
 .logo{
-	  color: #9EC7DD;
-	  font-family: 'Nosifer', cursive;
+	color: #9EC7DD;
+	font-family: 'Nosifer', cursive;
 }
 
 .navbar{
@@ -41,7 +41,7 @@ button.search{
 	font-size: 1em;
 	padding: 0 15px;
 	color: #9EC7DD;
-/*	box-shadow: 0 0 0 0.125em rgba(22, 93, 128, 0.25);*/
+
 
 }
 

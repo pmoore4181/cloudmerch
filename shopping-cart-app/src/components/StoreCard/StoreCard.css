@@ -1,4 +1,4 @@
-.card {
+/*.card {
   background: #fff;
   border-radius: 2px;
   height: 325px;
@@ -7,7 +7,34 @@
   width: 325px;
   box-shadow: 0 3px 6px #999, 0 3px 6px #999;
   text-align: left;
+}*/
+.card {
+  height: 324px;
+  width: 324px;
+  border-radius: 4.5px;
+  overflow: hidden;
 }
+.card-image{
+
+}
+
+.image1 {
+  height: 150px;
+  width: 200px;
+  float: left;
+  border-right: solid 1px white;
+}
+.image2, .image3{
+  height: 75px;
+  width: 124px;
+  float: right;
+}
+.image2 {
+  border-bottom: solid 1px white;
+}
+
+
+/*
 
 .card > .img-container {
   height: 60%;
@@ -45,3 +72,4 @@
 .card > .remove:hover {
   color: #d50000;
 }
+*/
