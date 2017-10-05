@@ -1,11 +1,19 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Home from './components/Home';
+import Home from './components/routes/Home';
+import UserView from './components/routes/UserView';
+import Shop from './components/routes/Shop';
+import Checkout from './components/routes/Checkout';
 
 const App = () => (
   <Router>
     <Route path="/" component={Home} />
+ 
   </Router>
 );
 
 export default App;
+
+//   <Route path="/user-login" component={UserView} />
+//   <Route path="/shop" component={Shop} />
+//   <Route path="/checkout" component={Checkout} />
