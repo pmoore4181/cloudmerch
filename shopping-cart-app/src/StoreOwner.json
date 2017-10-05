@@ -1,0 +1,41 @@
+{
+    "_id": {
+        "$oid": "59d03035f36d286c005cf3e8"
+    },
+    "name": "Tony",
+    "email": "tony@gmail.com",
+    "password": "tony",
+    "store": {
+        "name": "Tony's Salsa",
+        "description": "Selling the best homemade salsa since 1998. Based in Plano, TX.",
+        "products": [
+            {
+                "name": "The Original",
+                "price": 5,
+                "description": "The original salsa, a tomato and onion based salsa made with 5 whole jalapenos and 1 habanero pepper per 8 oz jar",
+                "img": "img src",
+                "quantity": 5,
+                "department": "food",
+                "keywords": [
+                    "salsa",
+                    "food",
+                    "spicy",
+                    "mexican"
+                ]
+            },
+            {
+                "name": "Verde Salsa",
+                "price": 6,
+                "description": "Our second best seller, a salsa made with tomatillos and zesty lime. Mild in spice.",
+                "img": "img src",
+                "quantity": 3,
+                "department": "food",
+                "keywords": [
+                    "salsa",
+                    "food",
+                    "mexican"
+                ]
+            }
+        ]
+    }
+}
