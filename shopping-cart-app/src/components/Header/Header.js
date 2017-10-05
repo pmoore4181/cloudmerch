@@ -1,7 +1,7 @@
-import React from "react";
-import "./Header.css";
+import React from 'react';
+import './Header.css';
 
-const Header = props => 
+const Header = props =>
 
 <div>
 <nav className="navbar">
@@ -39,4 +39,4 @@ const Header = props =>
 
 export default Header;
 
-		// {props.children}
+// {props.children}
