@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import StoreCard from '../StoreCard';
-import Wrapper from '../Wrapper';
-import Header from '../Header';
-import friends from '../../friends.json';
+import StoreCard from '../../StoreCard';
+import Wrapper from '../../Wrapper';
+import Header from '../../Header';
+import StoreLogin from "../../StoreLogin";
+import Store from "../../Store";
+import friends from '../../../friends.json';
 import './Home.css';
 
 class Home extends Component {
