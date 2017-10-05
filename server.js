@@ -3,11 +3,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const logger = require("morgan");
 const mongoose = require('mongoose');
-// const user = require('./routes/users')
-
 var path = require('path');
-
-var users = require('./routes/users');
 
 // Create Instance of Express
 var app = express();
@@ -26,8 +22,6 @@ var Seller = require('./database/models/seller');
 var Store = require('./database/models/store');
 
 app.use(express.static("./shopping-cart-app/src"));
-
-
 
 // MONGODB STUFF ===============================================
 
@@ -49,12 +43,30 @@ mongoose.Promise = global.Promise;
     });
 // });
 
+// Require the routes and have them pass through the app
+
+// var router = express.Router();
+
+// app.use(router);
+
+// Require our routes file pass our router object
+// require("./controllers/routes")(router);
+
+var routes = require("./controllers/routes");
+
+app.use(routes);
+
+
+
+// app.use()
+
 // ROUTE TO INDEX ==============================================
 // app.use('/', user);
-app.use('/users', users);
+// app.use('/users', users);
 
 
-// LISTEN TO process.env.PORT or 3000 ==========================
+
+// LISTEN TO process.env.PORT or 3001 ==========================
 app.listen(PORT, () => {
   console.log('listening on port ' + PORT);
 })
