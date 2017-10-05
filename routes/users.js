@@ -1,18 +1,19 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
 
-//THIS IS A SAMPLE ROUTE TO TEST THE CONNECTION BW THE SERVER AND THE CREATE-REACT-APP FRONT END
+const router = express.Router();
+
+// THIS IS A SAMPLE ROUTE TO TEST THE CONNECTION BW THE SERVER AND THE CREATE-REACT-APP FRONT END
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
+router.get('/', (req, res) => {
   // res.send('respond with a resource');
 
   res.json([{
     id: 1,
-    username: "samsepi0l"
+    username: 'samsepi0l',
   }, {
     id: 2,
-    username: "D0loresH4ze"
+    username: 'D0loresH4ze',
   }]);
 });
 
