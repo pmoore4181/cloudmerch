@@ -1,0 +1,6 @@
+.remove{
+	color: red;
+}
+.remove:hover{
+	color: black;
+}

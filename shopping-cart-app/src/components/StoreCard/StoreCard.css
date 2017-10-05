@@ -1,11 +1,14 @@
+
 .card {
   height: 324px;
   width: 324px;
-  border-radius: 4.5px;
+  border-radius: 3.5px;
   overflow: hidden;
-  box-shadow: 0 3px 6px #999, 0 3px 6px #999;
   position: relative;
   margin-bottom: 25px;
+}
+.card:active, .card:hover{
+  box-shadow: 0 6px 12px #999, 0 6px 12px #999;
 }
 
 .image1 {

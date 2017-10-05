@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import StoreCard from "./components/StoreCard";
 import Wrapper from "./components/Wrapper";
 import Header from "./components/Header";
+import StoreLogin from "./components/StoreLogin";
+import Store from "./components/Store";
 import friends from "./friends.json";
 import "./App.css";
 
@@ -25,7 +27,7 @@ class App extends Component {
         <Header location="Search all stores"/>
          <Wrapper>
         {this.state.friends.map(friend => 
-          <StoreCard
+         <StoreLogin // <StoreCard 
             removeStore={this.removeStore}
             id={friend.id}
             key={friend.id}
