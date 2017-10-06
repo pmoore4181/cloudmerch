@@ -22,14 +22,6 @@ class UserView extends Component {
     this.setState({ products });
   };
 
-  searcForStore = name => {
-    const passwordRef = this.refs.storeName;
-    if (passwordRef.value) {
-      this.props.register(passwordRef.value);
-      passwordRef.value = '';
-    }
-  }
-
   // Map over this.state.friends and render a FriendCard component for each friend object
   render() {
     return (
