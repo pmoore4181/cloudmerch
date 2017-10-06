@@ -8,10 +8,10 @@ router.get("/", function(req, res) {
     res.send("yahoo");
 })
 
-//FIND ALL SELLERS, STORES, and PRODUCTS -working
-router.get("/seller", function(req, res) {
+// FIND ALL SELLERS, STORES, and PRODUCTS -working
+router.get("/sellers", function(req, res) {
 
-    console.log("sellers accessed");
+    console.log("Sellers accessed");
 
     Seller.find({}, function(err, doc) {
         if (err) {
@@ -22,8 +22,8 @@ router.get("/seller", function(req, res) {
     })
 });
 
-//FIND A SPECIFIC SELLER -working
-router.get("/seller/:sellername", function(req, res) {
+// FIND A SPECIFIC SELLER -working
+router.get("/sellers/:sellername", function(req, res) {
 
     var sellername = req.params.sellername;
 
@@ -38,8 +38,8 @@ router.get("/seller/:sellername", function(req, res) {
     })
 });
 
-//FIND A SPECIFIC STORE FROM SPECIFIC SELLER - does not work yet
-router.get("/seller/:sellername/:storename", function(req, res) {
+// FIND A SPECIFIC STORE FROM SPECIFIC SELLER - does not work yet
+router.get("/sellers/:sellername/:storename", function(req, res) {
 
     var sellername = req.params.sellername;
     var storename = req.params.storename;
@@ -65,53 +65,66 @@ router.get("/seller/:sellername/:storename", function(req, res) {
     // });
 });
 
-//POST ROUTES
-router.post("/seller", function(req, res) {
+// POST ROUTES
+//  ADD NEW SELLER -working
+router.post("/sellers", function(req, res) {
+    var newSeller = new Seller(req.body);
+
+    newSeller.save(function(error, doc) {
+        if (error) {
+            console.log(error)
+        } else {
+            console.log("Seller posted to db")
+        }
+    })
+});
+
+// ADD NEW STORE
+router.post("/sellers/:sellername/stores", function(req, res) {
+
+    Seller.save().then(function() {
+        Saller.findOne({name: req.params.sellerbane})
+    })
+
+    // create a comment
+    parent.children.push({ name: 'Liesl' });
+    var subdoc = parent.children[0];
+    console.log(subdoc) // { _id: '501d86090d371bab2c0341c5', name: 'Liesl' }
+    subdoc.isNew; // true
+
+    parent.save(function(err) {
+        if (err) return handleError(err)
+        console.log('Success!');
+    });
+
+
+
+
+    // var newStore = new Store(req.body);
+
+    // Seller.findOneAndUpdate({ 'name': req.params.sellername }, { store: newStore }, { new: true }, function(error, doc) {
+    //     if (error) {
+    //         res.send(error);
+    //     } else {
+    //         console.log(`Store added to ${req.params.sellername}`)
+    //         res.send(doc);
+    //     }
+    // })
+});
+
+
+// PUT ROUTES
+router.put("/sellers", function(req, res) {
 
 });
 
-//PUT ROUTES
-router.put("/seller", function(req, res) {
-
-});
-
-//DELETE ROUTES
-router.delete("/seller", function(req, res) {
+// DELETE ROUTES
+router.delete("/sellers", function(req, res) {
 
 });
 
 
 
-//FIND ONLY STORES FROM ALL SELLERS
-// router.get("/seller/store", function(req, res) {
-
-//     console.log("stores accessed");
-
-//     Seller
-//         .find({})
-//         .populate({'$store'})
-//         .exec(function(err, doc) {
-//             if (err) {
-//                 console.log(err)
-//             } else {
-//                 res.json(doc)
-//             }
-//         })
-
-// Seller.aggregate(
-//     {
-//     $match: {'store'}
-//     }, 
-//     // {
-//     //     $unwind: '$store'
-//     // }
-//     ).exec(function(err, doc) {
-//     if (err) {
-//         console.log(err)
-//     } else {
-//         res.json(doc)
-//     }
-// })
 
 
 module.exports = router;
