@@ -26,7 +26,7 @@ class UserView extends Component {
      <div>
         <Header location="Search all stores"/>
          <Wrapper>
-        {this.state.friends.map(friend => 
+        {/*{this.state.friends.map(friend => 
           <StoreCard
             removeStore={this.removeStore}
             id={friend.id}
@@ -38,8 +38,9 @@ class UserView extends Component {
             image3={friend.image3}
             description={friend.description}
           />
-        )}
+        )}*/}
       </Wrapper>
+      <h1>Login</h1>
       </div>
     );
   }
