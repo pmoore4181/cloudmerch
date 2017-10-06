@@ -60,7 +60,10 @@ router.get("/sellers/:sellername/:storeid", function(req, res) {
         })
 });
 
+//
 // POST ROUTES
+//
+
 //  ADD NEW SELLER -working
 router.post("/sellers", function(req, res) {
     var newSeller = new Seller(req.body);
@@ -74,7 +77,7 @@ router.post("/sellers", function(req, res) {
     })
 });
 
-// ADD NEW STORE
+// ADD NEW STORE TO A CERTAIN SELLER- working
 router.post("/sellers/:sellername/stores", function(req, res) {
 
     Seller.save().then(function() {
@@ -95,17 +98,22 @@ router.post("/sellers/:sellername/stores", function(req, res) {
 
 
 
-    // var newStore = new Store(req.body);
-
-    // Seller.findOneAndUpdate({ 'name': req.params.sellername }, { store: newStore }, { new: true }, function(error, doc) {
-    //     if (error) {
-    //         res.send(error);
-    //     } else {
-    //         console.log(`Store added to ${req.params.sellername}`)
-    //         res.send(doc);
-    //     }
-    // })
+    Seller.findOneAndUpdate({ "name": req.params.sellername }, { $push: { store: [body]}},{ new: true },
+        function(err, numAffected) {
+            if (err) {
+                console.log(err)
+            } else {
+                console.log("store added to seller")
+            }
+        });
 });
+
+//ADD NEW PRODUCTS TO STORE
+router.post("/sellers/:sellername/:storename/products", function(req, res) {
+
+
+});
+
 
 
 // PUT ROUTES
