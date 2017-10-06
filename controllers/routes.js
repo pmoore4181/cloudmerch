@@ -38,31 +38,26 @@ router.get("/sellers/:sellername", function(req, res) {
     })
 });
 
-// FIND A SPECIFIC STORE FROM SPECIFIC SELLER - does not work yet
-router.get("/sellers/:sellername/:storename", function(req, res) {
+// FIND A SPECIFIC STORE FROM SPECIFIC SELLER - working
+router.get("/sellers/:sellername/:storeid", function(req, res) {
 
     var sellername = req.params.sellername;
-    var storename = req.params.storename;
+    var storeid = req.params.storeid;
 
-    console.log(`${sellername}'s store, ${storename}, accessed`);
+    console.log(`${sellername}'s store, ${storeid}, accessed`);
 
-    // Seller.findOne({ 'name': sellername }, { 'store.name': storename }),
-    //     function(err, doc) {
-    //         if (err) {
-    //             console.log(err)
-    //         } else {
-    //             res.json(doc)
-    //         }
-    //     }
-
-    // Seller.aggregate( {$match: { 'store.name': storename }, { $unwind : {"$store"} })
-    //     .exec(function(err, doc) {
-    //     if (err) {
-    //         console.log(err)
-    //     } else {
-    //         res.json(doc)
-    //     }
-    // });
+    Seller.find({ 'name': sellername })
+        .exec(function(err, doc) {
+            if (err) {
+                console.log(err);
+            }
+            if (doc[0].store[0]._id == storeid) {
+                res.json(doc[0].store[0]);
+            }
+            if (doc[0].store[1]._id == storeid) {
+                res.json(doc[0].store[1]);
+            }
+        })
 });
 
 // POST ROUTES
@@ -83,7 +78,7 @@ router.post("/sellers", function(req, res) {
 router.post("/sellers/:sellername/stores", function(req, res) {
 
     Seller.save().then(function() {
-        Saller.findOne({name: req.params.sellerbane})
+        Seller.findOne({ name: req.params.sellerbane })
     })
 
     // create a comment

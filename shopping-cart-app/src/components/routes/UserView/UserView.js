@@ -6,7 +6,7 @@ import Header from '../../Header';
 import StoreLogin from "../../StoreLogin";
 import Store from "../../Store";
 import friends from '../../../friends.json';
-import products from '../../../storeOwner.json';
+import products from '../../../StoreOwner.json';
 import './UserView.css';
 
 class UserView extends Component {
@@ -21,6 +21,14 @@ class UserView extends Component {
     // Set this.state.friends equal to the new friends array
     this.setState({ products });
   };
+
+  searcForStore = name => {
+    const passwordRef = this.refs.storeName;
+    if (passwordRef.value) {
+      this.props.register(passwordRef.value);
+      passwordRef.value = '';
+    }
+  }
 
   // Map over this.state.friends and render a FriendCard component for each friend object
   render() {
