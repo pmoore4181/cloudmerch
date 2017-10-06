@@ -28,19 +28,21 @@ class UserView extends Component {
      <div>
         <Header location="Search all stores"/>
          <Wrapper>
-        {this.state.products.map(products => 
-          <StoreLogin>
-            <ProductCard
-            removeItem={this.removeItem}
-            id={products.id}
-            key={products.id}
-            name={products.name}
-            img={products.img}
-            description={products.description}
-            />
-          </StoreLogin>
-        )}
+        {/*{this.state.friends.map(friend => 
+          <StoreCard
+            removeStore={this.removeStore}
+            id={friend.id}
+            key={friend.id}
+            name={friend.name}
+            storeImage={friend.storeImage}
+            image1={friend.image1}
+            image2={friend.image2}
+            image3={friend.image3}
+            description={friend.description}
+          />
+        )}*/}
       </Wrapper>
+      <h1>Login</h1>
       </div>
     );
   }

@@ -27,6 +27,7 @@ class Checkout extends Component {
         <Header location="Search all stores"/>
         <Wrapper>
         </Wrapper>
+        <h1>Checkout</h1>
       </div>
     );
   }

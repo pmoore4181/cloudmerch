@@ -26,7 +26,7 @@ class Shop extends Component {
      <div>
         <Header location="Search all stores"/>
          <Wrapper>
-        {this.state.friends.map(friend => 
+        {/*{this.state.friends.map(friend => 
           <StoreCard
             removeStore={this.removeStore}
             id={friend.id}
@@ -38,8 +38,9 @@ class Shop extends Component {
             image3={friend.image3}
             description={friend.description}
           />
-        )}
+        )} */}
       </Wrapper>
+      <h1>Shop</h1>
       </div>
     );
   }
