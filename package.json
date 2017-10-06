@@ -15,8 +15,8 @@
   "scripts": {
     "test": "nodemon  --exec 'mocha'",
     "start": "concurrently \"npm run server\" \"npm run client\"",
-    "server": "node server.js",
-    "client": "node start-shopping-cart-app.js"
+    "server": "nodemon server.js",
+    "client": "nodemon start-shopping-cart-app.js"
   },
   "devDependencies": {
     "concurrently": "^3.5.0",

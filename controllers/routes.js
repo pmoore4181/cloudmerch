@@ -38,31 +38,26 @@ router.get("/sellers/:sellername", function(req, res) {
     })
 });
 
-// FIND A SPECIFIC STORE FROM SPECIFIC SELLER - does not work yet
-router.get("/sellers/:sellername/:storename", function(req, res) {
+// FIND A SPECIFIC STORE FROM SPECIFIC SELLER - working
+router.get("/sellers/:sellername/:storeid", function(req, res) {
 
     var sellername = req.params.sellername;
-    var storename = req.params.storename;
+    var storeid = req.params.storeid;
 
-    console.log(`${sellername}'s store, ${storename}, accessed`);
+    console.log(`${sellername}'s store, ${storeid}, accessed`);
 
-    // Seller.findOne({ 'name': sellername }, { 'store.name': storename }),
-    //     function(err, doc) {
-    //         if (err) {
-    //             console.log(err)
-    //         } else {
-    //             res.json(doc)
-    //         }
-    //     }
-
-    // Seller.aggregate( {$match: { 'store.name': storename }, { $unwind : {"$store"} })
-    //     .exec(function(err, doc) {
-    //     if (err) {
-    //         console.log(err)
-    //     } else {
-    //         res.json(doc)
-    //     }
-    // });
+    Seller.find({ 'name': sellername })
+        .exec(function(err, doc) {
+            if (err) {
+                console.log(err);
+            }
+            if (doc[0].store[0]._id == storeid) {
+                res.json(doc[0].store[0]);
+            }
+            if (doc[0].store[1]._id == storeid) {
+                res.json(doc[0].store[1]);
+            }
+        })
 });
 
 //
@@ -85,7 +80,23 @@ router.post("/sellers", function(req, res) {
 // ADD NEW STORE TO A CERTAIN SELLER- working
 router.post("/sellers/:sellername/stores", function(req, res) {
 
-    var body = req.body
+    Seller.save().then(function() {
+        Seller.findOne({ name: req.params.sellerbane })
+    })
+
+    // create a comment
+    parent.children.push({ name: 'Liesl' });
+    var subdoc = parent.children[0];
+    console.log(subdoc) // { _id: '501d86090d371bab2c0341c5', name: 'Liesl' }
+    subdoc.isNew; // true
+
+    parent.save(function(err) {
+        if (err) return handleError(err)
+        console.log('Success!');
+    });
+
+
+
 
     Seller.findOneAndUpdate({ "name": req.params.sellername }, { $push: { store: [body]}},{ new: true },
         function(err, numAffected) {
