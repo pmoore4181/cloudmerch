@@ -24,7 +24,7 @@ class Home extends Component {
   render() {
     return (
      <div>
-        <Header location="Search all stores"/>
+        <Header location="Search all cloud items"/>
          <Wrapper>
         {this.state.friends.map(friend => 
           <StoreCard

@@ -7,7 +7,12 @@ const Header = props => (
 <nav className="navbar">
 	<div className="navbar-brand">
 		<div className="navbar-item">
-			<Link to="/" className="logo">Logo</Link>
+
+		  <Link to="/" className="logo">
+			<div className="title"> CM </div>
+			<div className="subtitle"> cloudmerch </div>
+		</Link>
+
 		</div>
 	</div>
 	<div className="navbar-menu">
