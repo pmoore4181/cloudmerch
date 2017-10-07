@@ -4,8 +4,9 @@ const bodyParser = require('body-parser');
 const logger = require('morgan');
 const mongoose = require('mongoose');
 const routes = require('./controllers/routes');
+const keys = require('./config/keys');
+require('./database/models/seller');
 require('./services/passport');
-
 // Create Instance of Express
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -26,7 +27,7 @@ const db = mongoose.connection;
 mongoose.Promise = global.Promise;
 
 
-mongoose.connect('mongodb://shoppingCart:shoppingCartPW1@ds155674.mlab.com:55674/shoppingcart', {
+mongoose.connect(keys.mongoURI, {
   useMongoClient: true,
 });
 
