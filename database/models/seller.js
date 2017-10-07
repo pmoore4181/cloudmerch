@@ -3,16 +3,17 @@ const StoreSchema = require('./store');
 
 const Schema = mongoose.Schema;
 
-const SellerSchema = new Schema({
+const SellersSchema = new Schema({
     name: String,
     // Add validation to email & password
     email: String,
     password: String,
-    store: 
-        [StoreSchema]
-    
+    stores: [{
+        type: Schema.Types.ObjectId,
+        ref: "Stores"
+    }]
 });
 
-const Seller = mongoose.model('seller', SellerSchema);
+const Sellers = mongoose.model('Seller', SellersSchema);
 
-module.exports = Seller;
+module.exports = Sellers;

@@ -3,11 +3,20 @@ const ProductSchema = require('./product');
 
 const Schema = mongoose.Schema;
 
-const StoreSchema = new Schema({
+const StoresSchema = new Schema({
   name: String,
   description: String,
-  products: [ProductSchema],
+  products: [{
+    type: Schema.Types.ObjectId,
+    ref: "Products"
+  }],
+  _seller: {
+    type: Schema.Types.ObjectId,
+    ref: "Sellers"
+  },
   image: String
 });
 
-module.exports = StoreSchema;
+const Stores = mongoose.model("Stores", StoresSchema);
+
+module.exports = Stores;
