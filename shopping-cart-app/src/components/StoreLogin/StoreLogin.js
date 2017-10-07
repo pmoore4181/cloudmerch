@@ -5,7 +5,7 @@ const StoreLogin = props => (
 	<div className="everything">
     <section className="hero">
    <div className="hero-body">
-    <div className="container">
+    <div className="container store-name">
       <h1 className="title">
         {props.userName}
       </h1>

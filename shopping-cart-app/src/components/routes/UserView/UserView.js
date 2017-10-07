@@ -54,7 +54,9 @@ class UserView extends Component {
             description={products.description}
             price={products.price}
             >
-              <Edit />
+              <Edit 
+              removeItem={this.removeItem}
+              id={products.id}/>
             </ProductCard>
             )}
           </StoreLogin>
