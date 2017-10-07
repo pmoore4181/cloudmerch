@@ -1,13 +1,13 @@
 const mongoose = require('mongoose');
 const ProductSchema = require('./product');
 
-const Schema = mongoose.Schema;
+const { Schema } = mongoose;
 
 const StoreSchema = new Schema({
   name: String,
   description: String,
   products: [ProductSchema],
-  image: String
+  image: String,
 });
 
 module.exports = StoreSchema;
