@@ -6,7 +6,7 @@ import Header from '../../Header';
 import StoreLogin from "../../StoreLogin";
 import Store from "../../Store";
 import friends from '../../../friends.json';
-import products from '../../../storeOwner.json';
+import products from '../../../StoreOwner.json';
 import userInfo from '../../../userInfo.json';
 
 
@@ -54,7 +54,9 @@ class UserView extends Component {
             description={products.description}
             price={products.price}
             >
-              <Edit />
+              <Edit 
+              removeItem={this.removeItem}
+              id={products.id}/>
             </ProductCard>
             )}
           </StoreLogin>

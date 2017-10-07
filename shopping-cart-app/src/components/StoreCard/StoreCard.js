@@ -20,9 +20,6 @@ const StoreCard = props => (
       </div>
     </div>
 
-    <span onClick={() => props.removeStore(props.id)} className="remove">
-      𝘅
-    </span>
   </div>
 );
 
