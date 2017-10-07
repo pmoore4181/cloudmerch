@@ -3,7 +3,11 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const logger = require('morgan');
 const mongoose = require('mongoose');
-const path = require('path');
+const passport = require('passport');
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
+const keys = require('./config/keys');
+const routes = require('./controllers/routes');
+// const path = require('path');
 
 // Create Instance of Express
 const app = express();
@@ -42,6 +46,24 @@ db
     // done();
   });
 
+// PASSPORT ====================================================
+passport.use(new GoogleStrategy({
+  clientID: keys.googleClientID,
+  clientSecret: keys.googleSecret,
+  callbackURL: '/auth/google/callback',
+}, (accessToken, refreshToken, profile) => {
+  console.log('access token', accessToken);
+  console.log('refresh token', refreshToken);
+  console.log('profile', profile);
+}));
+
+app.get('/auth/google', passport.authenticate('google', {
+  scope: ['profile', 'email'],
+}));
+
+
+// setting google Oauth
+app.get('/auth/google/callback', passport.authenticate('google'));
 
 // Require the routes and have them pass through the app
 
@@ -52,19 +74,13 @@ db
 // Require our routes file pass our router object
 // require("./controllers/routes")(router);
 
-var routes = require("./controllers/routes");
-
 app.use(routes);
-
-
 
 // app.use()
 
 // ROUTE TO INDEX ==============================================
 // app.use('/', user);
 // app.use('/users', users);
-
-
 
 // LISTEN TO process.env.PORT or 3001 ==========================
 app.listen(PORT, () => {

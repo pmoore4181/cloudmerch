@@ -7,13 +7,15 @@ import Checkout from './components/routes/Checkout';
 
 const App = () => (
   <Router>
-    <Route path="/" component={Shop} />
- 
+
+  	<div>
+    	<Route exact path="/" component={Home} />
+    	<Route path="/user-login" component={UserView} />
+   		<Route path="/shop" component={Shop} />
+   		<Route path="/checkout" component={Checkout} />
+ 		</div>
+
   </Router>
 );
 
 export default App;
-
-//   <Route path="/user-login" component={UserView} />
-//   <Route path="/shop" component={Shop} />
-//   <Route path="/checkout" component={Checkout} />

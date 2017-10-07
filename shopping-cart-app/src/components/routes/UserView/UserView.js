@@ -9,6 +9,7 @@ import friends from '../../../friends.json';
 import products from '../../../storeOwner.json';
 import userInfo from '../../../userInfo.json';
 
+
 import './UserView.css';
 
 const Edit = props => (
@@ -37,6 +38,7 @@ class UserView extends Component {
      <div>
         <Header location="Search all cloud items"/>
          <Wrapper>
+
           <StoreLogin
           id={userInfo[0].id}
           userName={userInfo[0].name}
@@ -56,7 +58,9 @@ class UserView extends Component {
             </ProductCard>
             )}
           </StoreLogin>
+
       </Wrapper>
+      <h1>Login</h1>
       </div>
     );
   }

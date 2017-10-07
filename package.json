@@ -7,6 +7,8 @@
     "express": "^4.16.1",
     "mongoose": "^4.11.13",
     "morgan": "^1.9.0",
+    "passport": "^0.4.0",
+    "passport-google-oauth20": "^1.0.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-router-dom": "^4.2.2",
@@ -15,8 +17,8 @@
   "scripts": {
     "test": "nodemon  --exec 'mocha'",
     "start": "concurrently \"npm run server\" \"npm run client\"",
-    "server": "node server.js",
-    "client": "node start-shopping-cart-app.js"
+    "server": "nodemon server.js",
+    "client": "nodemon start-shopping-cart-app.js"
   },
   "devDependencies": {
     "concurrently": "^3.5.0",

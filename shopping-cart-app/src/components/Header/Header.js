@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Header.css';
 
 const Header = props => (
@@ -6,10 +7,12 @@ const Header = props => (
 <nav className="navbar">
 	<div className="navbar-brand">
 		<div className="navbar-item">
-			<a className="logo" href="">
+
+		  <Link to="/" className="logo">
 			<div className="title"> CM </div>
 			<div className="subtitle"> cloudmerch </div>
-			</a>
+		</Link>
+
 		</div>
 	</div>
 	<div className="navbar-menu">
@@ -30,9 +33,9 @@ const Header = props => (
 			</div>
 		</div>
 		<div className="navbar-end">
-			<a className="sell-with-us" href="">Sell with us!</a>
-			<a className="seller-login">Seller Login</a>
-			<a className="cart button"><i className="fa fa-shopping-cart"></i></a>
+			<Link to="/shop" className="sell-with-us">Sell with us!</Link>
+			<Link to="/user-login" className="seller-login">Seller Login</Link>
+			<Link to="/checkout" className="cart button"><i className="fa fa-shopping-cart"></i></Link>
 		</div>
 	</div>
 

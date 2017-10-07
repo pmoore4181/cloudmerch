@@ -29,6 +29,7 @@ class Shop extends Component {
     return (
      <div>
         <Header location="Search all stores"/>
+
         <Wrapper>
           <StoreLogin
             id={userInfo[0].id}
@@ -47,7 +48,9 @@ class Shop extends Component {
             />
           )}
           </StoreLogin>
+
       </Wrapper>
+      <h1>Shop</h1>
       </div>
     );
   }
