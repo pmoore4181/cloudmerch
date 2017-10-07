@@ -80,36 +80,24 @@ router.post("/sellers", function(req, res) {
 // ADD NEW STORE TO A CERTAIN SELLER- working
 router.post("/sellers/:sellername/stores", function(req, res) {
 
-    Seller.save().then(function() {
-        Seller.findOne({ name: req.params.sellerbane })
-    })
+    var body = req.body;
 
-    // create a comment
-    parent.children.push({ name: 'Liesl' });
-    var subdoc = parent.children[0];
-    console.log(subdoc) // { _id: '501d86090d371bab2c0341c5', name: 'Liesl' }
-    subdoc.isNew; // true
-
-    parent.save(function(err) {
-        if (err) return handleError(err)
-        console.log('Success!');
-    });
-
-
-
-
-    Seller.findOneAndUpdate({ "name": req.params.sellername }, { $push: { store: [body]}},{ new: true },
+    Seller.findOneAndUpdate({ "name": req.params.sellername }, { $push: { store: body}},{ new: true },
         function(err, numAffected) {
             if (err) {
                 console.log(err)
             } else {
-                console.log("store added to seller")
+                console.log("Store added to seller")
             }
         });
 });
 
 //ADD NEW PRODUCTS TO STORE
 router.post("/sellers/:sellername/:storename/products", function(req, res) {
+
+    var body = req.body;
+
+    
 
 
 });
