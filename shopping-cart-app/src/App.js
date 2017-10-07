@@ -7,7 +7,7 @@ import Checkout from './components/routes/Checkout';
 
 const App = () => (
   <Router>
-    <Route path="/" component={UserView} />
+    <Route path="/" component={Shop} />
  
   </Router>
 );

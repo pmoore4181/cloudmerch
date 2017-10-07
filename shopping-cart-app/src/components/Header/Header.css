@@ -7,13 +7,17 @@
 .navbar-brand {
 	text-align: center;
 	font-size: 2.5rem;
-	padding: 0 30px;
+	padding: 0 20px;
 }
 .logo{
-	color: #9EC7DD;
-	font-family: 'Nosifer', cursive;
+	margin-left: 40px;
 }
-
+.title{
+	color: #98B7C8;
+}
+.logo>.subtitle{
+  color: #98B7C8;
+}
 .navbar{
 	background-color: white;
 	width: 100%;
@@ -24,7 +28,7 @@
 	margin-top: 20px;
 }
 .search-input{
-	margin-left: 170px;
+	margin-left: 80px;
 	width: 300px;
 }
 .input.is-active, .input.is-focused, .input:active, .input:focus, .textarea.is-active, .textarea.is-focused, .textarea:active, .textarea:focus, .button:focus:not(:active), .button.is-focused, .button:focus{

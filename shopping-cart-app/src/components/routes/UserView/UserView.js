@@ -7,12 +7,21 @@ import StoreLogin from "../../StoreLogin";
 import Store from "../../Store";
 import friends from '../../../friends.json';
 import products from '../../../storeOwner.json';
+import userInfo from '../../../userInfo.json';
+
 import './UserView.css';
+
+const Edit = props => (
+  <span onClick={() => props.removeItem(props.id)}  className="remove">
+    <button className="button remove">Remove Item</button>
+  </span>
+);
 
 class UserView extends Component {
   // Setting this.state.friends to the friends json array
   state = {
-    products
+      products,
+      userInfo
   };
 
   removeItem = id => {
@@ -26,10 +35,14 @@ class UserView extends Component {
   render() {
     return (
      <div>
-        <Header location="Search all stores"/>
+        <Header location="Search all cloud items"/>
          <Wrapper>
-        {this.state.products.map(products => 
-          <StoreLogin>
+          <StoreLogin
+          id={userInfo[0].id}
+          userName={userInfo[0].name}
+          userDescription={userInfo[0].description}
+         >
+           {this.state.products.map(products => 
             <ProductCard
             removeItem={this.removeItem}
             id={products.id}
@@ -37,9 +50,12 @@ class UserView extends Component {
             name={products.name}
             img={products.img}
             description={products.description}
-            />
+            price={products.price}
+            >
+              <Edit />
+            </ProductCard>
+            )}
           </StoreLogin>
-        )}
       </Wrapper>
       </div>
     );
