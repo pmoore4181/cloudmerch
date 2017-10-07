@@ -3,11 +3,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const logger = require('morgan');
 const mongoose = require('mongoose');
-const passport = require('passport');
-const GoogleStrategy = require('passport-google-oauth20').Strategy;
-const keys = require('./config/keys');
 const routes = require('./controllers/routes');
-// const path = require('path');
+require('./services/passport');
 
 // Create Instance of Express
 const app = express();
@@ -19,16 +16,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
-
-// require schemas
-// const Product = require('./database/models/product');
-// const Seller = require('./database/models/seller');
-// const Store = require('./database/models/store');
-
 app.use(express.static('./shopping-cart-app/src'));
 
-// MONGODB STUFF ===============================================
+// PASSPORT ===================================================
+require('./controllers/authRoutes')(app);
 
+// MONGODB STUFF ===============================================
 const db = mongoose.connection;
 mongoose.Promise = global.Promise;
 
@@ -45,25 +38,6 @@ db
     console.log('Connected to mLab database');
     // done();
   });
-
-// PASSPORT ====================================================
-passport.use(new GoogleStrategy({
-  clientID: keys.googleClientID,
-  clientSecret: keys.googleSecret,
-  callbackURL: '/auth/google/callback',
-}, (accessToken, refreshToken, profile) => {
-  console.log('access token', accessToken);
-  console.log('refresh token', refreshToken);
-  console.log('profile', profile);
-}));
-
-app.get('/auth/google', passport.authenticate('google', {
-  scope: ['profile', 'email'],
-}));
-
-
-// setting google Oauth
-app.get('/auth/google/callback', passport.authenticate('google'));
 
 // Require the routes and have them pass through the app
 
