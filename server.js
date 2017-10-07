@@ -61,6 +61,8 @@ app.get('/auth/google', passport.authenticate('google', {
   scope: ['profile', 'email'],
 }));
 
+
+// setting google Oauth
 app.get('/auth/google/callback', passport.authenticate('google'));
 
 // Require the routes and have them pass through the app
