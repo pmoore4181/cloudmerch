@@ -47,7 +47,7 @@ db
     console.warn('Warning', error);
   })
   .once('open', () => {
-    console.log('Connected to mLab database');
+    console.log('Successfully connected to database!');
     // done();
   });
 
