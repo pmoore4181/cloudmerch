@@ -9,8 +9,13 @@ const SellerSchema = new Schema({
   // Add validation to email & password
   email: String,
   password: String,
-  store:
-  [StoreSchema],
+  stores: [{
+        type: Schema.Types.ObjectId,
+        ref: "Stores"
+    }]
 });
 
-mongoose.model('seller', SellerSchema);
+const Seller = mongoose.model('seller', SellerSchema);
+
+module.exports = Seller;
+

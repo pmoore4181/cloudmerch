@@ -1,23 +1,19 @@
-var Seller = require("../database/models/seller");
-var Products = require("../database/models/product");
-var Store = require("../database/models/store");
-var express = require('express');
-var router = express.Router();
+const Sellers = require("../database/models/seller");
+const Products = require("../database/models/product");
+const Stores = require("../database/models/store");
+const express = require('express');
+const router = express.Router();
 
 ////////////////
 // GET ROUTES //
 ////////////////
 
-router.get("/", function(req, res) {
-    res.send("yahoo");
-})
-
-// FIND ALL SELLERS, STORES, and PRODUCTS -working
+// FIND ALL SELLERS -working
 router.get("/sellers", function(req, res) {
 
     console.log("Sellers accessed");
 
-    Seller.find({}, function(err, doc) {
+    Sellers.find({}, function(err, doc) {
         if (err) {
             console.log(err)
         } else {
@@ -26,75 +22,122 @@ router.get("/sellers", function(req, res) {
     })
 });
 
-// FIND A SPECIFIC SELLER -working
-router.get("/sellers/:sellername", function(req, res) {
+// // FIND A SPECIFIC SELLER BY SELLER ID -working
+// router.get("/sellers/:sellerid", function(req, res) {
 
-    var sellername = req.params.sellername;
+//     var sellerid = req.params.sellerid;
 
-    console.log(`${sellername} accessed`);
+//     console.log(`${sellerid} accessed`);
 
-    Seller.findOne({ 'name': sellername }, function(err, doc) {
-        if (err) {
-            console.log(err)
-        } else {
-            res.json(doc)
-        }
-    })
-});
-
-// FIND A SPECIFIC STORE FROM SPECIFIC SELLERv1 - working
-
-// router.get("/sellers/:sellername/:storeid", function(req, res) {
-
-//     var sellername = req.params.sellername;
-//     var storeid = req.params.storeid;
-
-//     console.log(`${sellername}'s store, ${storeid}, accessed`);
-
-//     Seller.find({ 'name': sellername })
-//         .exec(function(err, doc) {
-//             if (err) {
-//                 console.log(err);
-//             }
-//             if (doc[0].store[0]._id == storeid) {
-//                 res.json(doc[0].store[0]);
-//             }
-//             if (doc[0].store[1]._id == storeid) {
-//                 res.json(doc[0].store[1]);
-//             }
-//         })
+//     Sellers.findById(sellerid, function(err, doc) {
+//         if (err) {
+//             console.log(err)
+//         } else {
+//             res.json(doc)
+//         }
+//     })
 // });
 
-// FIND A SPECIFIC STORE FROM SPECIFIC SELLERv2 - working
-router.get("/sellers/:sellername/:storename", function(req, res) {
+// FIND ALL STORES - working
+router.get("/stores/", function(req, res) {
 
-    var sellername = req.params.sellername;
-    var storename = req.params.storename;
+    Stores.find({}, function(err, doc) {
+        if (err) {
+            console.log(err)
+        } else {
+            res.json(doc)
+        }
+    })
+});
 
-    console.log(`${sellername}'s store, ${storename}, accessed`);
+// FIND ALL STORES WITH PRODUCTS POPULATED- working
+router.get("/stores/products", function(req, res) {
 
-    Seller.aggregate([{ $unwind: "$store" }, { $match: { "name": sellername, "store.name": storename } }, { $project: { "_id": 0, "store": 1 } }])
+    Stores.find({})
+        .populate("products")
         .exec(function(err, doc) {
-                if (err) {
-                    console.log(err)
-                } else {
-                    res.json(doc)
-                }
+            if (err) {
+                console.log(err)
+            } else {
+                res.json(doc)
             }
+        })
+});
 
-        );
+
+
+// FIND ALL STORES BY A SELLER - working
+router.get("/sellers/:sellerid/stores/", function(req, res) {
+
+    Sellers.findById(req.params.sellerid)
+
+        .populate("stores")
+
+        .exec(function(err, doc) {
+            if (err) {
+                console.log(err)
+            } else {
+                res.json(doc.stores)
+            }
+        })
 })
+
+
+// FIND ONE STORE FROM A SELLER BY IDs - working
+router.get("/sellers/:sellerid/stores/:storeid", function(req, res) {
+
+    Sellers.findById(req.params.sellerid)
+
+        .populate("stores", null, { "_id": req.params.storeid })
+
+        .exec(function(err, doc) {
+            if (err) {
+                console.log(err)
+            } else {
+                res.json(doc.stores)
+            }
+        })
+})
+
+
+// GET A SPECIFIC PRODUCT
+router.get("/products/:productid", function(req, res) {
+
+    Products.findById(req.params.productid, function(err, doc) {
+        if (err) {
+            console.log(err)
+        } else {
+            res.json(doc)
+        }
+    })
+})
+
+// GET A LIST OF PRODUCTS THAT MATCH A TAG
+router.get("/products/search/:keyword", function(req, res) {
+
+    var str = req.params.keyword;
+    var keyword = str.toLowerCase();
+
+    Products.find({ keywords: keyword }, function(err, doc) {
+        if (err) {
+            console.log(err)
+        } else {
+            res.json(doc)
+        }
+    })
+})
+
 
 // FIND PRODUCTS FROM A SPECIFICS STORE - not yet working
 // DOES IT NEED TO WORK?
-router.get("/sellers/:sellername/:storename/products", function(req, res) {
+// router.get("/sellers/:sellername/:storename/products", function(req, res) {
 
-    var sellername = req.params.sellername;
-    var storename = req.params.storename;
+//     var sellername = req.params.sellername;
+//     var storename = req.params.storename;
 
-    console.log(`${sellername}'s store, ${storename} products, accessed`);
+//     console.log(`${sellername}'s store, ${storename} products, accessed`);
 
-});
+// });
 
 
 
@@ -102,9 +145,9 @@ router.get("/sellers/:sellername/:storename/products", function(req, res) {
 // POST ROUTES //
 /////////////////
 
-//  ADD NEW SELLER -working
+// ADD NEW SELLER -working
 router.post("/sellers", function(req, res) {
-    var newSeller = new Seller(req.body);
+    var newSeller = new Sellers(req.body);
 
     newSeller.save(function(error, doc) {
         if (error) {
@@ -116,42 +159,90 @@ router.post("/sellers", function(req, res) {
 });
 
 // ADD NEW STORE TO A CERTAIN SELLER- working
-router.post("/sellers/:sellername/stores", function(req, res) {
+router.post("/stores/:sellerid/", function(req, res) {
+    var newStore = new Stores(req.body);
 
-    var body = req.body;
-
-    Seller.findOneAndUpdate({ "name": req.params.sellername }, { $push: { store: body } }, { new: true },
-        function(err, numAffected) {
-            if (err) {
-                console.log(err)
-            } else {
-                console.log("Store added to seller")
-            }
-        });
+    newStore.save(function(error, doc) {
+        if (error) {
+            console.log(error)
+        } else {
+            Sellers.findByIdAndUpdate(req.params.sellerid, { $push: { "stores": doc._id } }, { new: true }, function(err, doc) {
+                if (err) {
+                    console.log(err)
+                } else {
+                    res.send(doc)
+                }
+            })
+        }
+    })
 });
 
-//ADD NEW PRODUCTS TO STORE - not yet working
-router.post("/sellers/:sellername/:storename/products", function(req, res) {
+//ADD NEW PRODUCTS TO STORE - working
+router.post("/stores/:storeid/products", function(req, res) {
 
-    var sellername = req.params.sellername;
-    var storename = req.params.storename;
-    var body = req.body;
+    var newProduct = new Products(req.body);
 
-
+    newProduct.save(function(error, doc) {
+        if (error) {
+            console.log(error)
+        } else {
+            Stores.findByIdAndUpdate(req.params.storeid, { $push: { "products": doc._id } }, { new: true }, function(err, doc) {
+                if (err) {
+                    console.log(err)
+                } else {
+                    res.send(doc);
+                }
+            })
+        }
+    })
 });
+
 
 ////////////////
 // PUT ROUTES //
 ////////////////
 
-// UPDATE SELLER INFO
-router.put("/sellers", function(req, res) {
+// UPDATE SELLER INFO - working
+router.put("/sellers/:sellerid", function(req, res) {
 
+    var update = req.body
+
+    Sellers.findByIdAndUpdate(req.params.sellerid, { $set: update }, { new: true }, function(err, seller) {
+        if (err) {
+            console.log(err)
+        } else {
+            res.send(seller)
+        }
+    })
 });
 
-// UPDATE SPECIFIC STORE INFO
+// UPDATE SPECIFIC STORE INFO - working
+router.put("/stores/:storeid", function(req, res) {
+
+    var update = req.body
+
+    Stores.findByIdAndUpdate(req.params.storeid, { $set: update }, { new: true }, function(err, store) {
+        if (err) {
+            console.log(err)
+        } else {
+            res.send(store)
+        }
+    })
+});
 
 // UPDATE SPECIFIC PRODUCT INFO
+router.put("/products/:productid", function(req, res) {
+
+    var update = req.body
+
+    Products.findByIdAndUpdate(req.params.productid, { $set: update }, { new: true }, function(err, product) {
+        if (err) {
+            console.log(err)
+        } else {
+            res.send(product)
+        }
+    })
+});
 
 
 ///////////////////
@@ -159,17 +250,33 @@ router.put("/sellers", function(req, res) {
 ///////////////////
 
 // DELETE PRODUCT
+router.delete("/products/:productid", function(req, res) {
+
+    var productId = req.params.productid;
+
+    Products.remove({ _id: productId }, function(err) {
+        if (err) {
+            console.log(err)
+        } else {
+            console.log(`Product id ${productId} deleted!`)
+        }
+    })
+})
 
 // DELETE STORE
+router.delete("/stores/:storeid", function(req, res) {
+
+    var storeId = req.params.storeid;
+
+    Stores.remove({ _id: storeId }, function(err) {
+        if (err) {
+            console.log(err)
+        } else {
+            console.log(`Store id ${storeId} deleted!`)
+        }
+    })
+})
 
 // DELETE SELLER
-
-router.delete("/sellers", function(req, res) {
-
-});
-
-
-
-
 
 module.exports = router;

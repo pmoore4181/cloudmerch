@@ -62,12 +62,6 @@ db
 
 app.use(routes);
 
-// app.use()
-
-// ROUTE TO INDEX ==============================================
-// app.use('/', user);
-// app.use('/users', users);
-
 // LISTEN TO process.env.PORT or 3001 ==========================
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
