@@ -1,7 +1,7 @@
 {
   "name": "shopping-cart-app",
   "version": "0.1.0",
-  // "private": true,
+  "private": true,
   "engines": {
     "node": "8.4.0",
     "npm": "5.4..2"
@@ -22,8 +22,8 @@
   "scripts": {
     "test": "nodemon  --exec 'mocha'",
     "start": "concurrently \"npm run server\" \"npm run client\"",
-    "server": "node server.js",
-    "client": "node start-shopping-cart-app.js"
+    "server": "nodemon server.js",
+    "client": "nodemon start-shopping-cart-app.js"
   },
   "devDependencies": {
     "concurrently": "^3.5.0",
