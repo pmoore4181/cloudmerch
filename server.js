@@ -3,6 +3,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const logger = require('morgan');
 const mongoose = require('mongoose');
+const cookieSession = require('cookie-session');
+const passport = require('passport');
 const routes = require('./controllers/routes');
 const keys = require('./config/keys');
 require('./database/models/seller');
@@ -17,15 +19,24 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
+
 app.use(express.static('./shopping-cart-app/src'));
 
+// COOKIE SESSION
+app.use(cookieSession({
+  // cookie will last for 30 days
+  maxAge: 30 * 24 * 60 * 60 * 1000,
+  keys: [keys.cookieKey],
+}));
+
 // PASSPORT ===================================================
+app.use(passport.initialize());
+app.use(passport.session());
 require('./controllers/authRoutes')(app);
 
 // MONGODB STUFF ===============================================
 const db = mongoose.connection;
 mongoose.Promise = global.Promise;
-
 
 mongoose.connect(keys.mongoURI, {
   useMongoClient: true,
