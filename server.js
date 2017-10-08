@@ -13,9 +13,9 @@ require('./services/passport');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('client/build'));
-}
+// if (process.env.NODE_ENV === 'production') {
+//   app.use(express.static('client/build'));
+// }
 
 // Run Morgan and BodyParser
 app.use(logger('dev'));
