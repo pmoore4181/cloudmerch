@@ -1,10 +1,12 @@
 import React from 'react';
 import './ProductCard.css';
 
+
 const ProductCard = props => (
   <div className="card">
   <div className="card-header">
     <div className="card-image">
+   
       <img className="image" alt={props.name} src={props.img} />
     </div>
     <div>
@@ -12,15 +14,14 @@ const ProductCard = props => (
     </div>
   </div>
     <div className="card-content">
-       <p className="storeName">{props.name}</p>
+      <div className="remove">{props.children}</div>
+      <p className="storeName">{props.name}</p>
       <div className="description">
         {props.description}
       </div>
     </div>
+   <box className="price">{props.price}</box>
 
-    <span onClick={() => props.removeStore(props.id)} className="remove">
-      𝘅
-    </span>
   </div>
 );
 

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const ProductSchema = require('./product');
 
-const Schema = mongoose.Schema;
+const { Schema } = mongoose;
 
 const StoresSchema = new Schema({
   name: String,
