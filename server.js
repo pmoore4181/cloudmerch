@@ -62,6 +62,10 @@ db
 
 app.use(routes);
 
+// tell Node/Express to serve static assets in production
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('shopping-cart-app/build'));
+}
 // LISTEN TO process.env.PORT or 3001 ==========================
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
