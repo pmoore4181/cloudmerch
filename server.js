@@ -9,10 +9,12 @@ const routes = require('./controllers/routes');
 const keys = require('./config/keys');
 require('./database/models/seller');
 require('./services/passport');
+
 // Create Instance of Express
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+// tell Node/Express to serve static assets in production
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('shopping-cart-app/build'));
 }
