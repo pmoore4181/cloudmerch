@@ -154,6 +154,7 @@ router.post("/sellers", function(req, res) {
             console.log(error)
         } else {
             console.log("Seller posted to db")
+            res.send(doc)
         }
     })
 });
