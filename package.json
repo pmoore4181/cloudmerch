@@ -1,5 +1,5 @@
 {
-  "name": "shopping-cart-app",
+  "name": "server",
   "version": "0.1.0",
   "private": true,
   "engines": {
@@ -21,9 +21,10 @@
   },
   "scripts": {
     "test": "nodemon  --exec 'mocha'",
-    "start": "concurrently \"npm run server\" \"npm run client\"",
-    "server": "node server.js",
-    "client": "node start-shopping-cart-app.js"
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm run start --prefix shopping-cart-app",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "devDependencies": {
     "concurrently": "^3.5.0",
