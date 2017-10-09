@@ -1,0 +1,21 @@
+.checkout-item-image{
+	height: 50px;
+	width: 70px;
+}
+.checkout-item-box{
+
+}
+.checkout-item-title{
+	font-size: 1.2em;
+	position: absolute;
+	left: 25%;
+}
+
+.checkout-item-remove{
+	position: relative;
+	margin-top: 13px;
+	margin-right: 23px;
+	padding: 5px;
+	/*padding: 20px 15px;*/
+	font-size: 1em;
+}

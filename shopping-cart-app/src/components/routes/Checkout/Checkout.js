@@ -3,21 +3,33 @@ import StoreCard from '../../StoreCard';
 import Wrapper from '../../Wrapper';
 import Header from '../../Header';
 import StoreLogin from "../../StoreLogin";
-import Store from "../../Store";
-import friends from '../../../friends.json';
+import Cart from "../../Cart";
+import cartItems from '../../../cartItems.json';
 import './Checkout.css';
 
 class Checkout extends Component {
   // Setting this.state.friends to the friends json array
+
+
+
   state = {
-    friends
+    cartItems, 
+    totalArray
   };
 
-  removeStore = id => {
+
+
+  removeItem = id => {
     // Filter this.state.friends for friends with an id not equal to the id being removed
-    const friends = this.state.friends.filter(friend => friend.id !== id);
+    const cartItems = this.state.cartItems.filter(cart => cart.id !== id);
     // Set this.state.friends equal to the new friends array
-    this.setState({ friends });
+    this.setState({ cartItems });
+  };
+
+  calculateTotal = (cartItems) => {
+   const eachTotal = this.state.cartItems.map(cartItems => cartItems.quantity * cartItems.price);
+    this.totalArray.push({eachTotal});
+    console.log(totalArray);
   };
 
   // Map over this.state.friends and render a FriendCard component for each friend object
@@ -26,6 +38,31 @@ class Checkout extends Component {
      <div>
         <Header location="Search all stores"/>
         <Wrapper>
+          <div className="columns">
+          <div className="column is-8">
+            {this.state.cartItems.map(cartItems =>
+              <Cart
+              id={cartItems.id}
+              removeItem={this.removeItem}
+              itemImg= {cartItems.itemImg}
+              name={cartItems.name}
+              price= {cartItems.price}
+              quantity={cartItems.quantity}
+              />
+            )}
+          </div>
+        
+          <div className="column is-4">
+          <div className="box total-box">
+          {this.calculateTotal}
+           {this.totalArray.map(totalArray =>
+          
+          total={totalArray.eachTotal}
+          )}
+           {total}
+          </div>
+          </div>
+          </div>
         </Wrapper>
         <h1>Checkout</h1>
       </div>
