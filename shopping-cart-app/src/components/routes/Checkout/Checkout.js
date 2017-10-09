@@ -13,8 +13,7 @@ class Checkout extends Component {
 
 
   state = {
-    cartItems, 
-    totalArray
+    cartItems
   };
 
 
@@ -24,12 +23,6 @@ class Checkout extends Component {
     const cartItems = this.state.cartItems.filter(cart => cart.id !== id);
     // Set this.state.friends equal to the new friends array
     this.setState({ cartItems });
-  };
-
-  calculateTotal = (cartItems) => {
-   const eachTotal = this.state.cartItems.map(cartItems => cartItems.quantity * cartItems.price);
-    this.totalArray.push({eachTotal});
-    console.log(totalArray);
   };
 
   // Map over this.state.friends and render a FriendCard component for each friend object
@@ -54,12 +47,6 @@ class Checkout extends Component {
         
           <div className="column is-4">
           <div className="box total-box">
-          {this.calculateTotal}
-           {this.totalArray.map(totalArray =>
-          
-          total={totalArray.eachTotal}
-          )}
-           {total}
           </div>
           </div>
           </div>
