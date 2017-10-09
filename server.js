@@ -13,6 +13,10 @@ require('./services/passport');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('shopping-cart-app/build'));
+}
+
 // Run Morgan and BodyParser
 app.use(logger('dev'));
 app.use(bodyParser.json());

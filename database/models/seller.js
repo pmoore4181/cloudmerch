@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const StoreSchema = require('./store');
 
 const { Schema } = mongoose;
 
