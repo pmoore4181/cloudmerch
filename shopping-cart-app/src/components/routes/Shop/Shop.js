@@ -12,10 +12,23 @@ import './Shop.css';
 
 class Shop extends Component {
   // Setting this.state.friends to the friends json array
-   state = {
-      products,
-      userInfo
-  };
+  constructor(props) {
+        super(props);
+        // this.handleClick = this.handleClick.bind(this);
+    }
+
+    state = {info: []}
+
+   componentDidMount() {
+    fetch('/stores/' + this.props.query)
+        .then(res=>res.json)
+        .then(info=>this.setState({info}))
+        .then(console.log(this.info))
+   }
+
+
+
+
 
   // removeStore = id => {
   //   // Filter this.state.friends for friends with an id not equal to the id being removed
@@ -26,25 +39,26 @@ class Shop extends Component {
 
   // Map over this.state.friends and render a FriendCard component for each friend object
   render() {
+    console.log(this.info);
     return (
      <div>
         <Header location="Search all stores"/>
 
         <Wrapper>
           <StoreLogin
-            id={userInfo[0].id}
-            userName={userInfo[0].name}
-            userDescription={userInfo[0].description}
+            // // id={info._id}
+            // userName={userInfo[0].name}
+            // userDescription={userInfo[0].description}
           >
-          {this.state.products.map(products => 
+          {this.state.info.map(shop => 
             <ProductCard
-              removeItem={this.removeItem}
-              id={products.id}
-              key={products.id}
-              name={products.name}
-              img={products.img}
-              description={products.description}
-              price={products.price}
+              // removeItem={this.removeItem}
+              // id={shop.product._id}
+              // key={products.id}
+              // name={products.name}
+              // img={products.img}
+              // description={products.description}
+              // price={products.price}
             />
           )}
           </StoreLogin>

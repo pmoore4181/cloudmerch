@@ -2,7 +2,7 @@ import React from 'react';
 import './StoreCard.css';
 
 const StoreCard = props => (
-  <div className="card">
+  <div className="card" onClick={props.onClick}>
   <div className="card-header">
     <div className="card-image">
       <img className="image1" alt={props.name} src={props.image1} />
