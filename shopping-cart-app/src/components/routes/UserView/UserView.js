@@ -4,7 +4,6 @@ import ProductCard from '../../ProductCard';
 import Wrapper from '../../Wrapper';
 import Header from '../../Header';
 import StoreLogin from "../../StoreLogin";
-
 import friends from '../../../friends.json';
 import products from '../../../StoreOwner.json';
 import userInfo from '../../../userInfo.json';
@@ -62,7 +61,6 @@ class UserView extends Component {
           </StoreLogin>
 
       </Wrapper>
-      <h1>Login</h1>
       </div>
     );
   }
