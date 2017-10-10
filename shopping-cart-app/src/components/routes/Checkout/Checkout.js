@@ -51,7 +51,6 @@ class Checkout extends Component {
           </div>
           </div>
         </Wrapper>
-        <h1>Checkout</h1>
       </div>
     );
   }

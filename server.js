@@ -7,10 +7,9 @@ const cookieSession = require('cookie-session');
 const passport = require('passport');
 const routes = require('./controllers/routes');
 const keys = require('./config/keys');
-const flash    = require('connect-flash');
-const morgan       = require('morgan');
+const flash = require('connect-flash');
 const cookieParser = require('cookie-parser');
-const session      = require('express-session');
+const session = require('express-session');
 require('./database/models/seller');
 require('./services/passport');
 // passport routes
@@ -49,7 +48,7 @@ app.use(session({
   secret: 'cloudmerch',
   resave: false,
   saveUninitialized: true,
-  cookie: { secure: false }
+  cookie: { secure: false },
 }));
 
 // PASSPORT ===================================================
