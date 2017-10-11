@@ -7,7 +7,7 @@ import StoreLogin from "../../StoreLogin";
 import Store from "../../Store";
 import friends from '../../../friends.json';
 import products from '../../../StoreOwner.json';
-import userInfo from '../../../userInfo.json';
+// import userInfo from '../../../userInfo.json';
 
 
 import './UserView.css';
@@ -22,7 +22,7 @@ class UserView extends Component {
   // Setting this.state.friends to the friends json array
   state = {
       products,
-      userInfo
+      // userInfo
   };
 
   removeItem = id => {
@@ -40,9 +40,9 @@ class UserView extends Component {
          <Wrapper>
 
           <StoreLogin
-          id={userInfo[0].id}
-          userName={userInfo[0].name}
-          userDescription={userInfo[0].description}
+          // id={userInfo[0].id}
+          // userName={userInfo[0].name}
+          // userDescription={userInfo[0].description}
          >
            {this.state.products.map(products => 
             <ProductCard

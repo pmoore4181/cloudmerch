@@ -6,27 +6,28 @@ import Header from '../../Header';
 import StoreLogin from "../../StoreLogin";
 import Store from "../../Store";
 import friends from '../../../friends.json';
-import products from '../../../StoreOwner.json';
-import userInfo from '../../../userInfo.json';
+// import products from '../../../StoreOwner.json';
+// import userInfo from '../../../userInfo.json';
 import './Shop.css';
 
 class Shop extends Component {
-  // Setting this.state.friends to the friends json array
+
   constructor(props) {
         super(props);
-        // this.handleClick = this.handleClick.bind(this);
+        this.state = { storeInfo: '', products: []};
+        
     }
 
-    state = {info: []}
+    // state = {storeInfo: [], 
+        // products: []
+    // };
 
    componentDidMount() {
-    fetch('/stores/' + this.props.query)
-        .then(res=>res.json)
-        .then(info=>this.setState({info}))
-        .then(console.log(this.info))
+    fetch('/stores/59dac308b9267fbcb5d2de32')
+        .then(res => res.json())
+        .then((storeInfo) => {this.setState({ storeInfo: storeInfo })})
+        // .then(this.state.products = {this.state.storeInfo.products})
    }
-
-
 
 
 
@@ -37,32 +38,65 @@ class Shop extends Component {
   //   this.setState({ friends });
   // };
 
+  //  {this.state.storeInfo.map(products => )}
+
+  // {this.state.storeInfo.products.map(storeInfo =>
+
+
+       // {this.state.storeInfo.map(storeInfo) =>
+       //      <ProductCard
+       //        // removeItem={this.removeItem}
+       //        // id={this.state.storeInfo.products[0].id}
+       //        key={i}
+       //        name={storeInfo.name}
+       //        // img={products.img}
+       //        // description={products.description}
+       //        // price={products.price}
+       //      />
+       //      )
+       //      })
+
+       // {this.state.storeInfo.products && this.state.storeInfo.products.length &&     
+
   // Map over this.state.friends and render a FriendCard component for each friend object
   render() {
-    console.log(this.info);
+    // console.log(this.state.storeInfo) // displays all of the JSON
+    // console.log(this.state.storeInfo.name); //
+    // console.log(this.state.storeInfo['products'][1]['name']);
+    // console.log(this.state.storeInfo.products[0].name);
+
     return (
      <div>
         <Header location="Search all stores"/>
-
         <Wrapper>
-          <StoreLogin
-            // // id={info._id}
-            // userName={userInfo[0].name}
-            // userDescription={userInfo[0].description}
-          >
-          {this.state.info.map(shop => 
-            <ProductCard
-              // removeItem={this.removeItem}
-              // id={shop.product._id}
-              // key={products.id}
-              // name={products.name}
-              // img={products.img}
-              // description={products.description}
-              // price={products.price}
-            />
-          )}
-          </StoreLogin>
 
+          <StoreLogin
+            id={this.state.storeInfo._id}
+            userName={this.state.storeInfo.name}
+            // productName=
+            userDescription={this.state.storeInfo.description}
+          >
+
+                        {this.state.storeInfo.products && this.state.storeInfo.products.length &&
+ this.state.storeInfo.products.map((product)  =>
+
+                <ProductCard
+              // removeItem={this.removeItem}
+              id={product._id}
+              key={product._id}
+              name={product.name}
+              img={product.img}
+              description={product.description}
+              price={product.price}
+            />)
+        }
+
+          
+
+          
+
+            </StoreLogin>
+          
       </Wrapper>
       <h1>Shop</h1>
       </div>

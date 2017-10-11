@@ -6,7 +6,7 @@ import StoreLogin from "../../StoreLogin";
 import Store from "../../Store";
 import friends from '../../../friends.json';
 import products from '../../../StoreOwner.json';
-import userInfo from '../../../userInfo.json';
+// import userInfo from '../../../userInfo.json';
 import './Home.css';
 
 class Home extends Component {
@@ -26,7 +26,7 @@ class Home extends Component {
     handleClick() {
         console.log('The link was clicked.');
         const query = this.key;
-        this.props.callbackFromParent(query);
+        // this.props.callbackFromParent(query);
         window.location = '/shop/'
         // +this.state.query;
     }
