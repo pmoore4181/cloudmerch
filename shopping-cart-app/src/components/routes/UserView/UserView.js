@@ -35,7 +35,6 @@ class UserView extends Component {
   render() {
     return (
      <div>
-        <Header location="Search all cloud items"/>
          <Wrapper>
 
           <StoreLogin

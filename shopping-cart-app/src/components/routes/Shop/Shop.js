@@ -27,7 +27,6 @@ class Shop extends Component {
   render() {
     return (
      <div>
-        <Header location="Search all stores"/>
 
         <Wrapper>
           <StoreLogin

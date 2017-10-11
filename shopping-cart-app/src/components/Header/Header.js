@@ -20,7 +20,7 @@ const Header = props => (
 			<div className="field">
  				<div className="search-input">
  				 	<p className="control">
-  	  					<input className="input" type="text" placeholder={props.location} />
+  	  					<input className="input" type="text" placeholder="Search all stores" />
   	  				</p>
  				</div>
 			</div>
