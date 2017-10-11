@@ -1,14 +1,16 @@
+var Sellers = require('../database/models/seller');
+
 module.exports = function(app, passport) {
 
     // =====================================
     // HOME PAGE (with login links) ========
     // =====================================
-    app.get('/', function(req, res) {
-        // res.render('index.ejs'); // load the index.ejs file
+    // app.get('/', function(req, res) {
+    //     // res.render('index.ejs'); // load the index.ejs file
 
-        // test home page
-        res.json('home page');
-    });
+    //     // test home page
+    //     res.json('home page');
+    // });
 
     // =====================================
     // LOGIN ===============================
@@ -54,12 +56,24 @@ module.exports = function(app, passport) {
     // we will want this protected so you have to be logged in to visit
     // we will use route middleware to verify this (the isLoggedIn function)
     app.get('/profile', isLoggedIn, function(req, res) {
-        // res.render('profile.ejs', {
-        //     user : req.user // get the user out of session and pass to template
-        // });
 
         // test profile page
-        res.json("profile page")
+        // res.json("profile page")
+
+        // search for seller profile and return their stores
+        var sellerid = req.user._id;
+
+        Sellers.findById(sellerid)
+
+            .populate("Stores")
+
+            .exec(function(err, doc) {
+                if (err) {
+                    console.log(err)
+                } else {
+                    res.json(doc.stores)
+                }
+            })
     });
 
     // =====================================
