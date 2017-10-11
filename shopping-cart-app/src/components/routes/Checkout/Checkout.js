@@ -29,7 +29,6 @@ class Checkout extends Component {
   render() {
     return (
      <div>
-        <Header location="Search all stores"/>
         <Wrapper>
           <div className="columns">
           <div className="column is-8">
