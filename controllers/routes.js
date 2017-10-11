@@ -99,6 +99,20 @@ router.get("/sellers/:sellerid/stores/:storeid", function(req, res) {
         })
 })
 
+// FIND ONE STORE WITH PRODUCTS POPULATED- working
+router.get("/stores/:storeid", function(req, res) {
+
+    Stores.findById(req.params.storeid)
+        .populate("products")
+        .exec(function(err, doc) {
+            if (err) {
+                console.log(err)
+            } else {
+                res.json(doc)
+            }
+        })
+});
+
 
 // GET A SPECIFIC PRODUCT
 router.get("/products/:productid", function(req, res) {

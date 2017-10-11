@@ -7,7 +7,7 @@ const StoresSchema = new Schema({
   description: String,
   products: [{
     type: Schema.Types.ObjectId,
-    ref: "Products"
+    ref: "products"
   }],
   _seller: {
     type: Schema.Types.ObjectId,

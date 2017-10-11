@@ -9,6 +9,7 @@ import Shop from './components/routes/Shop';
 import Checkout from './components/routes/Checkout';
 import Header from './components/Header';
 
+
 class App extends Component {
   componentDidMount() {
     this.props.fetchUser();
