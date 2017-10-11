@@ -7,15 +7,23 @@ const cookieSession = require('cookie-session');
 const passport = require('passport');
 const routes = require('./controllers/routes');
 const keys = require('./config/keys');
+const flash = require('connect-flash');
+const cookieParser = require('cookie-parser');
+const session = require('express-session');
 require('./database/models/seller');
 require('./services/passport');
+// passport routes
+
 // Create Instance of Express
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+// tell Node/Express to serve static assets in production
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('shopping-cart-app/build'));
 }
+
+require('./config/passport')(passport); // pass passport for configuration
 
 // Run Morgan and BodyParser
 app.use(logger('dev'));
@@ -33,10 +41,22 @@ app.use(cookieSession({
   keys: [keys.cookieKey],
 }));
 
+// passport-local cookies
+app.use(cookieParser()); // read cookies (needed for auth)
+// session secret
+app.use(session({
+  secret: 'cloudmerch',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: false },
+}));
+
 // PASSPORT ===================================================
 app.use(passport.initialize());
 app.use(passport.session());
 require('./controllers/authRoutes')(app);
+
+app.use(flash()); // use connect-flash for flash messages stored in session
 
 // MONGODB STUFF ===============================================
 const db = mongoose.connection;
@@ -65,6 +85,8 @@ db
 // require("./controllers/routes")(router);
 
 app.use(routes);
+require('./controllers/passportLocal.js')(app, passport);
+
 
 // LISTEN TO process.env.PORT or 3001 ==========================
 app.listen(PORT, () => {

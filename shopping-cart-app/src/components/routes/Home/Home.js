@@ -3,7 +3,6 @@ import StoreCard from '../../StoreCard';
 import Wrapper from '../../Wrapper';
 import Header from '../../Header';
 import StoreLogin from "../../StoreLogin";
-import Store from "../../Store";
 import friends from '../../../friends.json';
 import products from '../../../StoreOwner.json';
 // import userInfo from '../../../userInfo.json';
@@ -35,7 +34,6 @@ class Home extends Component {
 
     return (
      <div>
-        <Header location="Search all cloud items"/>
          <Wrapper>
 
          {this.state.stores.map(store=>

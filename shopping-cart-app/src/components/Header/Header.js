@@ -20,7 +20,7 @@ const Header = props => (
 			<div className="field">
  				<div className="search-input">
  				 	<p className="control">
-  	  					<input className="input" type="text" placeholder={props.location} />
+  	  					<input className="input" type="text" placeholder="Search all stores" />
   	  				</p>
  				</div>
 			</div>
@@ -35,6 +35,7 @@ const Header = props => (
 		<div className="navbar-end">
 			<Link to="/shop" className="sell-with-us">Sell with us!</Link>
 			<Link to="/user-login" className="seller-login">Seller Login</Link>
+			<a href="/auth/google">Sign in with Google</a>
 			<Link to="/checkout" className="cart button"><i className="fa fa-shopping-cart"></i></Link>
 		</div>
 	</div>
