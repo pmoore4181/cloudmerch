@@ -15,7 +15,10 @@ class Home extends Component {
         this.handleClick = this.handleClick.bind(this);
     }
 
-    state = {stores: []}
+    state = {
+        stores: [],
+        query: ''
+    }
 
     componentDidMount() {
         fetch('/stores/products')
@@ -23,12 +26,11 @@ class Home extends Component {
         .then(stores => this.setState({stores}))
     }
 
-    handleClick() {
-        console.log('The link was clicked.');
-        const query = this.key;
-        // this.props.callbackFromParent(query);
-        window.location = '/shop/'
-        // +this.state.query;
+    handleClick(e) {
+        console.log('The link was clicked.' +  e.target.dataset.id);
+        window.location = '/shop/' + e.target.dataset.id;
+        // console.log(e.target.dataset.id)
+        // console.log(e.target)
     }
 
     render() {
@@ -38,16 +40,18 @@ class Home extends Component {
         <Header location="Search all cloud items"/>
          <Wrapper>
 
-         {this.state.stores.map(store=>
+         {this.state.stores.map((store)=>
             <StoreCard 
             key={store._id}
+            id={store._id}
             name={store.name}
             storeImage={store.image}
             image1={store.products[0].img}
             image2={store.products[1].img}
             image3={store.products[2].img}
             description={store.description} 
-            onClick={this.handleClick}             
+            // onClick={this.handleClick}  
+            onClick={this.handleClick}           
             />)}
          
       </Wrapper>

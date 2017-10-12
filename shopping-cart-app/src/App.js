@@ -19,7 +19,7 @@ return(
   	<div>
     	<Route exact path="/" component={Home} />
     	<Route path="/user-login" component={UserView} />
-   		<Route path="/shop" component={Shop} />
+   		<Route path="/shop/:id" component={Shop} />
    		<Route path="/checkout" component={Checkout} />
  		</div>
 
