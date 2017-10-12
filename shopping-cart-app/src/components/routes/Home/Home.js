@@ -18,11 +18,11 @@ class Home extends Component {
         query: ''
     }
 
-    // componentDidMount() {
-    //     fetch('/stores/products')
-    //     .then(res => res.json())
-    //     .then(stores => this.setState({stores}))
-    // }
+    componentDidMount() {
+        fetch('/stores/products')
+        .then(res => res.json())
+        .then(stores => this.setState({stores}))
+    }
 
     handleClick(e) {
         console.log('The link was clicked.' +  e.target.dataset.id);
