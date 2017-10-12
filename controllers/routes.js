@@ -71,7 +71,7 @@ router.get("/sellers/:sellerid/stores/", function(req, res) {
 
     Sellers.findById(req.params.sellerid)
 
-        .populate("stores")
+        .populate("Stores")
 
         .exec(function(err, doc) {
             if (err) {
