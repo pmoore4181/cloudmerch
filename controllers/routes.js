@@ -171,7 +171,6 @@ router.post("/sellers", function(req, res) {
             res.send(doc)
         }
     })
-    console.log(req.body);
 });
 
 // ADD NEW STORE TO A CERTAIN SELLER- working
