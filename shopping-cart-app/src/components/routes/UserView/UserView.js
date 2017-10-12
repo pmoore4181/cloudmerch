@@ -4,7 +4,6 @@ import ProductCard from '../../ProductCard';
 import Wrapper from '../../Wrapper';
 import Header from '../../Header';
 import StoreLogin from "../../StoreLogin";
-import Store from "../../Store";
 import friends from '../../../friends.json';
 import products from '../../../StoreOwner.json';
 // import userInfo from '../../../userInfo.json';
@@ -36,7 +35,6 @@ class UserView extends Component {
   render() {
     return (
      <div>
-        <Header location="Search all cloud items"/>
          <Wrapper>
 
           <StoreLogin
@@ -62,7 +60,6 @@ class UserView extends Component {
           </StoreLogin>
 
       </Wrapper>
-      <h1>Login</h1>
       </div>
     );
   }
