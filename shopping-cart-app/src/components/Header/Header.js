@@ -1,49 +1,72 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+
 import './Header.css';
 
-const Header = props => (
-<div>
-<nav className="navbar">
-	<div className="navbar-brand">
-		<div className="navbar-item">
+class Header extends Component {
+  renderContent() {
+    switch (this.props.auth) {
+      case null:
+        return;
+      case false:
+        return (
+          <li><a className="google-login" href="/auth/google">Login With Google</a></li>
+        );
+      default:
+        return (
+          <div>
+            <a className="dashboard" href="/user-login">Dashboard</a>
+            <a className="log-out" href="/api/logout">Logout</a>
+          </div>
+        );
+    }
+  }
 
-		  <Link to="/" className="logo">
-			<div className="title"> CM </div>
-			<div className="subtitle"> cloudmerch </div>
-		</Link>
+  render() {
+    return (
+      <nav className="navbar">
+        <div className="navbar-brand">
+          <div className="navbar-item">
 
-		</div>
-	</div>
-	<div className="navbar-menu">
-		<div className="navbar-start">
-			<div className="field">
- 				<div className="search-input">
- 				 	<p className="control">
-  	  					<input className="input" type="text" placeholder="Search all stores" />
-  	  				</p>
- 				</div>
-			</div>
-			<div className="field">
-				<button className="button search"> 
-					<span className="icon is-small is-left">
-                        <i className="fa fa-search"></i>
-                    </span>
-                </button>
-			</div>
-		</div>
-		<div className="navbar-end">
-			<Link to="/signup" className="sell-with-us">Sell with us!</Link>
-			<Link to="/user-login" className="seller-login">Seller Login</Link>
-			<a href="/auth/google">Sign in with Google</a>
-			<Link to="/checkout" className="cart button"><i className="fa fa-shopping-cart"></i></Link>
-		</div>
-	</div>
+            <Link to="/" className="logo">
+              <div className="title"> CM </div>
+              <div className="subtitle"> cloudmerch </div>
+            </Link>
 
-</nav>
-</div>
-);
+          </div>
+        </div>
+        <div className="navbar-menu">
+          <div className="navbar-start">
+            <div className="field">
+              <div className="search-input">
+                <p className="control">
+                  <input className="input" type="text" placeholder="Search all stores" />
+                </p>
+              </div>
+            </div>
+            <div className="field">
+              <button className="button search">
+                <span className="icon is-small is-left">
+                  <i className="fa fa-search" />
+                </span>
+              </button>
+            </div>
+          </div>
+          <div className="navbar-end">
+            <Link to="/shop" className="sell-with-us">Sell with us!</Link>
+            <ul className="seller-login">{this.renderContent()}</ul>
+            <Link to="/checkout" className="cart button"><i className="fa fa-shopping-cart"></i></Link>
+          </div>
+        </div>
 
-export default Header;
+      </nav>
+    );
+  }
+}
 
-// {props.children}
+function mapStateToProps({ auth }) {
+  return { auth };
+}
+
+export default connect(mapStateToProps)(Header);
