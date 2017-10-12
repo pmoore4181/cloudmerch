@@ -11,10 +11,15 @@ class Header extends Component {
         return;
       case false:
         return (
-          <li><a href="/auth/google">Login With Google</a></li>
+          <li><a className="google-login" href="/auth/google">Login With Google</a></li>
         );
       default:
-        return <li><a href="/api/logout">Logout</a></li>;
+        return (
+          <div>
+            <a className="dashboard" href="/user-login">Dashboard</a>
+            <a className="log-out" href="/api/logout">Logout</a>
+          </div>
+        );
     }
   }
 
@@ -50,8 +55,7 @@ class Header extends Component {
           </div>
           <div className="navbar-end">
             <Link to="/shop" className="sell-with-us">Sell with us!</Link>
-            <Link to="/user-login" className="seller-login">Seller Login</Link>
-            <ul>{this.renderContent()}</ul>
+            <ul className="seller-login">{this.renderContent()}</ul>
             <Link to="/checkout" className="cart button"><i className="fa fa-shopping-cart"></i></Link>
           </div>
         </div>
