@@ -5,8 +5,6 @@ import Wrapper from '../../Wrapper';
 import Header from '../../Header';
 import StoreLogin from "../../StoreLogin";
 import friends from '../../../friends.json';
-// import products from '../../../StoreOwner.json';
-// import userInfo from '../../../userInfo.json';
 import './Shop.css';
 
 class Shop extends Component {

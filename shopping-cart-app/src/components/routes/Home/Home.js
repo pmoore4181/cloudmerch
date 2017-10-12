@@ -5,7 +5,6 @@ import Header from '../../Header';
 import StoreLogin from "../../StoreLogin";
 import friends from '../../../friends.json';
 import products from '../../../StoreOwner.json';
-// import userInfo from '../../../userInfo.json';
 import './Home.css';
 
 class Home extends Component {
@@ -28,8 +27,6 @@ class Home extends Component {
     handleClick(e) {
         console.log('The link was clicked.' +  e.target.dataset.id);
         window.location = '/shop/' + e.target.dataset.id;
-        // console.log(e.target.dataset.id)
-        // console.log(e.target)
     }
 
     render() {
@@ -48,7 +45,6 @@ class Home extends Component {
             image2={store.products[1].img}
             image3={store.products[2].img}
             description={store.description} 
-            // onClick={this.handleClick}  
             onClick={this.handleClick}           
             />)}
          
