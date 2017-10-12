@@ -9,7 +9,6 @@ import Shop from './components/routes/Shop';
 import Checkout from './components/routes/Checkout';
 import Header from './components/Header';
 
-
 class App extends Component {
   componentDidMount() {
     this.props.fetchUser();
@@ -22,7 +21,7 @@ class App extends Component {
           <Header />
           <Route exact path="/" component={Home} />
           <Route path="/user-login" component={UserView} />
-          <Route path="/shop" component={Shop} />
+          <Route path="/shop/:id" component={Shop} />
           <Route path="/checkout" component={Checkout} />
         </div>
       </Router>

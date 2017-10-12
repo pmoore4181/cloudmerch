@@ -2,20 +2,20 @@ import React from 'react';
 import './StoreCard.css';
 
 const StoreCard = props => (
-  <div className="card" onClick={props.onClick}>
-  <div className="card-header">
-    <div className="card-image">
-      <img className="image1" alt={props.name} src={props.image1} />
-      <img className="image2" alt={props.name} src={props.image2} />
-      <img className="image3" alt={props.name} src={props.image3} />
+  <div className="card" onClick={props.onClick} data-id={props.id}>
+  <div className="card-header" data-id={props.id}>
+    <div className="card-image" data-id={props.id}>
+      <img className="image1" alt={props.name} src={props.image1} data-id={props.id}/>
+      <img className="image2" alt={props.name} src={props.image2} data-id={props.id}/>
+      <img className="image3" alt={props.name} src={props.image3} data-id={props.id}/>
     </div>
-    <div>
-      <img className="store-image" alt={props.name} src={props.storeImage} />
+    <div data-id={props.id}>
+      <img className="store-image" alt={props.name} src={props.storeImage} data-id={props.id}/>
     </div>
   </div>
-    <div className="card-content">
+    <div className="card-content" data-id={props.id}>
        <p className="storeName">{props.name}</p>
-      <div className="description">
+      <div className="description" data-id={props.id}>
         {props.description}
       </div>
     </div>
