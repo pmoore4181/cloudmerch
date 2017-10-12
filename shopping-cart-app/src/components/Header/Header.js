@@ -33,7 +33,7 @@ const Header = props => (
 			</div>
 		</div>
 		<div className="navbar-end">
-			<Link to="/shop" className="sell-with-us">Sell with us!</Link>
+			<Link to="/signup" className="sell-with-us">Sell with us!</Link>
 			<Link to="/user-login" className="seller-login">Seller Login</Link>
 			<a href="/auth/google">Sign in with Google</a>
 			<Link to="/checkout" className="cart button"><i className="fa fa-shopping-cart"></i></Link>

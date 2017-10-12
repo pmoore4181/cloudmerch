@@ -8,6 +8,7 @@ import UserView from './components/routes/UserView';
 import Shop from './components/routes/Shop';
 import Checkout from './components/routes/Checkout';
 import Header from './components/Header';
+import Signup from './components/routes/Signup';
 
 class App extends Component {
   componentDidMount() {
@@ -23,6 +24,7 @@ class App extends Component {
           <Route path="/user-login" component={UserView} />
           <Route path="/shop/:id" component={Shop} />
           <Route path="/checkout" component={Checkout} />
+          <Route path="/signup" component={Signup} />
         </div>
       </Router>
     );
