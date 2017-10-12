@@ -71,7 +71,7 @@ router.get("/sellers/:sellerid/stores/", function(req, res) {
 
     Sellers.findById(req.params.sellerid)
 
-        .populate("stores")
+        .populate("Stores")
 
         .exec(function(err, doc) {
             if (err) {
@@ -171,6 +171,7 @@ router.post("/sellers", function(req, res) {
             res.send(doc)
         }
     })
+    console.log(req.body);
 });
 
 // ADD NEW STORE TO A CERTAIN SELLER- working
