@@ -10,53 +10,35 @@
 .card:active, .card:hover{
   box-shadow: 0 6px 12px #999, 0 6px 12px #999;
 }
-.price{
-  font-size: 2em;
-  color: #5F7181;
-  font-family: 'Source Sans Pro', sans-serif;
-  margin-left: 8px;
-}
-.price:active, .price:hover{
-  font-size: 3em;
-  color: black;
 
-}
-
-img{
-  border: none;
-}
-
-.image{
-  height: 175px;
-  margin: 5%;
-  margin: 15px 15px 15px 47px;
-  margin-left: ;
-  border-radius: 2%;
-}
-
-.card-content{
+.upload-card-header{
   text-align: center;
- /* height: 100%;
-  width: 100%;
-  padding-bottom: 15px;
-  padding-top: 12px;*/
-}
-.storeName{
-  font-family: 'Open Sans', sans-serif;
-  color: #657E8C;
+  margin-bottom: 6px !important;
+  padding-left: 73px;
 }
 
-.description{
+.form-card-content{
+  padding-top: 0;
+}
+label{
+  font-size: .85em;
+}
+
+.new-product{
+  font-size: .6em;
+}
+
+.new-product:active, .new-product:hover{
+  box-shadow: 0 6px 12px #999, 0 6px 12px #999;
+}
+
+button.submit-button{
+  margin-top: 0;
+  margin-left: 100px; 
+  border: 1px solid #5F7181;
+}
+
+form{
   color: #5F7181;
-  font-family: 'Source Sans Pro', sans-serif;
-}
-
-.submit-button{
-  border: 1px solid black;
-}
-
-
-.remove:hover{
-  color: black;
 }
 

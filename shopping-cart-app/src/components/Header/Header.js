@@ -41,7 +41,7 @@ class Header extends Component {
             <div className="field">
               <div className="search-input">
                 <p className="control">
-                  <input className="input" type="text" placeholder="Search all stores" />
+                  <input className="input search-bar-input" name="search-bar" type="text" placeholder="Search all stores" />
                 </p>
               </div>
             </div>

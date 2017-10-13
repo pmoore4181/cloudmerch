@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import StoreCard from '../../StoreCard';
 import Wrapper from '../../Wrapper';
-// import Header from '../../Header';
+import Header from '../../Header';
 // import StoreLogin from "../../StoreLogin";
 import './Home.css';
 
@@ -31,6 +31,7 @@ class Home extends Component {
 
     return (
      <div>
+         <Header />
          <Wrapper>
 
          {this.state.stores.map((store)=>

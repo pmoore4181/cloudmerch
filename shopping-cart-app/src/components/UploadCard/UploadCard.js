@@ -4,20 +4,32 @@ import './UploadCard.css';
 
 const UploadCard = props => (
   <div className="card">
-  <div className ="card-content">
-    <p className="storeName"> Upload New Product </p>
+  <div className="card-header subtitle upload-card-header">Upload New Product</div>
+
+  <div className ="card-content form-card-content">
+   
     <form action="/" method="POST" encType="multipart/form-data">
-    <label htmlFor="name">Product name</label>
-    <input type="text" id="name" placeholder="Product name"/>
-    <label htmlFor="description">Description</label>
-    <input type="text" id="description" placeholder="Description"/>
-    <label htmlFor="tags">Tags</label>
-    <input type="text" id="tags" placeholder="Tags"/>
-    <label htmlFor="price">Price</label>
-    <input type="number" id="price" placeholder="Price"/>
-    <label htmlFor="image">Upload product image</label>
-    <input type="file" id="image" />
-    <input type="submit" value="submit" className="submit-button"/>
+    <div className="field">
+        <label htmlFor="name">Product name: </label>
+        <input className="input new-product" type="text" id="name" placeholder="Product name"/>
+    </div>
+    <div className="field">
+        <label htmlFor="description">Description: </label>
+        <input className="input new-product" type="text" id="description" placeholder="Description"/>
+    </div>
+    <div className="field">
+        <label htmlFor="tags">Tags: </label>
+        <input className="input new-product" type="text" id="tags" placeholder="Tags"/>
+    </div>
+    <div className="field">
+        <label htmlFor="price">Price: </label>
+        <input className="input new-product" type="text" id="price" placeholder="Price"/>
+    </div>
+    <div className="field">
+        <label htmlFor="image">Upload product image: </label>
+        <input className="input new-product" type="file" id="image" />
+    </div>
+    <button type="submit" className="button submit-button">Submit</button>
     </form>
     </div>
 

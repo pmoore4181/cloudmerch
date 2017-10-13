@@ -7,8 +7,9 @@ import Home from './components/routes/Home';
 import UserView from './components/routes/UserView';
 import Shop from './components/routes/Shop';
 import Checkout from './components/routes/Checkout';
-import Header from './components/Header';
+//import Header from './components/Header';
 import Signup from './components/routes/Signup';
+import SearchResults from './components/routes/SearchResults';
 
 class App extends Component {
   componentDidMount() {
@@ -19,12 +20,12 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Header />
           <Route exact path="/" component={Home} />
           <Route path="/user-login/:id" component={UserView} />
           <Route path="/shop/:id" component={Shop} />
           <Route path="/checkout" component={Checkout} />
           <Route path="/signup" component={Signup} />
+          <Route path="/search-results/:tag" component={SearchResults} />
         </div>
       </Router>
     );

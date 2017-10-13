@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import StoreCard from '../../StoreCard';
+//import StoreCard from '../../StoreCard';
 import Wrapper from '../../Wrapper';
 import Header from '../../Header';
-import StoreLogin from "../../StoreLogin";
+// import StoreLogin from "../../StoreLogin";
 import Cart from "../../Cart";
 import cartItems from '../../../cartItems.json';
 import './Checkout.css';
@@ -29,6 +29,7 @@ class Checkout extends Component {
   render() {
     return (
      <div>
+        <Header />
         <Wrapper>
           <div className="columns">
           <div className="column is-8">

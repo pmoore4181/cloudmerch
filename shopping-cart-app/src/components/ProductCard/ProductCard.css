@@ -1,5 +1,5 @@
 
-.card {
+.product-card {
   height: 375px;
   width: 324px;
   border-radius: 3.5px;
@@ -7,25 +7,24 @@
   position: relative;
   margin: 30px;
 }
-.card:active, .card:hover{
+.product-card:active, .product-card:hover{
   box-shadow: 0 6px 12px #999, 0 6px 12px #999;
 }
-.price{
-  font-size: 2em;
+.product-price{
+  font-size: 1.5em;
   color: #5F7181;
   font-family: 'Source Sans Pro', sans-serif;
-  margin-left: 8px;
-}
-.price:active, .price:hover{
-  font-size: 3em;
-  color: black;
+  /*margin-right: 100%;*/
+  float: left;
+  padding: 3px;
 
 }
+
 img{
   border: none;
 }
 
-.image{
+.product-image{
   height: 175px;
   margin: 5%;
   margin: 15px 15px 15px 47px;
@@ -34,17 +33,19 @@ img{
  
   
 }
-.card-content{
+.product-card-content{
   
   top: 60%;
   text-align: center;
   width: 100%;
   padding-bottom: 15px;
   padding-top: 12px;
+  overflow: scroll;
 }
-.storeName{
+.productName{
   font-family: 'Open Sans', sans-serif;
   color: #657E8C;
+  font-weight: bold;
 }
 
 .description{

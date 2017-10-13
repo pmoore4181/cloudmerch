@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // import StoreCard from '../../StoreCard';
 import ProductCard from '../../ProductCard';
 import Wrapper from '../../Wrapper';
-// import Header from '../../Header';
+import Header from '../../Header';
 import StoreLogin from "../../StoreLogin";
 import UploadCard from "../../UploadCard";
 
@@ -93,7 +93,8 @@ class UserView extends Component {
 
 
 
-         <Wrapper>
+        <Wrapper>
+        <Header />
 
           <StoreLogin
                 id={this.state.storeInfo._id}

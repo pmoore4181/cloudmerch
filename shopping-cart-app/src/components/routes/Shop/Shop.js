@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // import StoreCard from '../../StoreCard';
 import ProductCard from '../../ProductCard';
 import Wrapper from '../../Wrapper';
-// import Header from '../../Header';
+import Header from '../../Header';
 import StoreLogin from "../../StoreLogin";
 import './Shop.css';
 
@@ -35,7 +35,7 @@ class Shop extends Component {
      <div>
 
         
-
+        <Header />
         <Wrapper>
 
             <StoreLogin
