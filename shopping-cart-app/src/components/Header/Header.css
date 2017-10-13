@@ -65,3 +65,17 @@ button.search{
 	border-right: solid 1px black;
 }
 
+.dashboard{
+	padding-right: 27px;
+	border-right: solid 1px black;
+	color: #9EC7DD;
+}
+
+.log-out{
+	padding-left: 27px;
+	color: #9EC7DD;
+}
+
+.google-login{
+	color: #9EC7DD;
+}
