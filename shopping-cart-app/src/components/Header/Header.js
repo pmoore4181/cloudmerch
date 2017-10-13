@@ -5,6 +5,34 @@ import { connect } from 'react-redux';
 import './Header.css';
 
 class Header extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            searchTerm: ''
+        }
+        this.handleClick = this.handleClick.bind(this)
+        this.handleChange = this.handleChange.bind(this)
+    }
+
+    handleClick() {
+        console.log('The link was clicked ' +  this.state.searchTerm);
+        window.location = /search-results/ + this.state.searchTerm;
+    }
+
+    handleChange(event) {
+        let newState = this.state;
+        newState[event.target.name] = event.target.value;
+        this.setState(newState);
+
+    }
+
+    handleKeyPress = (event) => {
+        if(event.key == 'Enter'){
+            this.handleClick();
+        }
+    }
+
   renderContent() {
     switch (this.props.auth) {
       case null:
@@ -41,12 +69,12 @@ class Header extends Component {
             <div className="field">
               <div className="search-input">
                 <p className="control">
-                  <input className="input search-bar-input" name="search-bar" type="text" placeholder="Search all stores" />
+                  <input className="input search-bar-input" name="searchTerm" type="text" placeholder="Search all stores"  value={this.state.searchTerm} onChange={this.handleChange} onKeyPress={this.handleKeyPress}/>
                 </p>
               </div>
             </div>
             <div className="field">
-              <button className="button search">
+              <button className="button search" onClick={this.handleClick}>
                 <span className="icon is-small is-left">
                   <i className="fa fa-search" />
                 </span>
