@@ -1,66 +1,122 @@
 import React, { Component } from 'react';
-import StoreCard from '../../StoreCard';
+// import StoreCard from '../../StoreCard';
 import ProductCard from '../../ProductCard';
 import Wrapper from '../../Wrapper';
-import Header from '../../Header';
+// import Header from '../../Header';
 import StoreLogin from "../../StoreLogin";
-import friends from '../../../friends.json';
-import products from '../../../StoreOwner.json';
-// import userInfo from '../../../userInfo.json';
+import UploadCard from "../../UploadCard";
+
 
 
 import './UserView.css';
 
 const Edit = props => (
-  <span onClick={() => props.removeItem(props.id)}  className="remove">
+  <span onClick={() => props.deleteItem(props.id)}  className="remove">
     <button className="button remove">Remove Item</button>
   </span>
 );
 
 class UserView extends Component {
-  // Setting this.state.friends to the friends json array
-  state = {
-      products,
-      // userInfo
-  };
 
-  removeItem = id => {
-    // Filter this.state.friends for friends with an id not equal to the id being removed
-    const products = this.state.products.filter(products => products.id !== id);
-    // Set this.state.friends equal to the new friends array
-    this.setState({ products });
-  };
+    constructor(props) {
+        super(props);
+        this.state = { storeInfo: ''}; 
+        this.deleteItem = this.deleteItem.bind(this)   
+    }
 
-  // Map over this.state.friends and render a FriendCard component for each friend object
-  render() {
-    return (
-     <div>
+    componentDidMount() {
+    fetch('/stores/' + this.props.match.params.id)
+        .then(res => res.json())
+        .then((storeInfo) => {this.setState({ storeInfo: storeInfo })})
+    }
+
+    deleteItem(id) {
+        fetch('/products/' + id, {method: 'DELETE'})
+        .then(
+            
+            function() 
+            {
+
+            // console.log(res)
+
+            // console.log(this.state.storeInfo)
+
+            let products = (this.state.storeInfo.products && this.state.storeInfo.products.length && this.state.storeInfo.products.filter(product => id !== product._id));
+        
+            this.setState({products});
+            
+            // const products = (this.state.storeInfo.products && this.state.storeInfo.products.length && this.state.storeInfo.products.filter(products => products._id !== id));
+  //   // Set this.state.friends equal to the new friends array
+            // this.setState({ storeInfo: products });
+
+
+            // console.log(res)
+            // if (this.state.storeInfo.products && this.state.storeInfo.products.length) {
+            //     const products = this.state.storeInfo.products.filter(products => products._id !== id);
+            //     console.log(products)
+            //     if (products) {
+            //     this.setState({ storeInfo: products})
+            // }
+        }
+        )
+        
+        .catch( err => console.error(err))  
+    }
+
+  // removeItem = id => {
+  //   // Filter this.state.friends for friends with an id not equal to the id being removed
+  //   const products = this.state.products.filter(products => products.id !== id);
+  //   // Set this.state.friends equal to the new friends array
+  //   this.setState({ products });
+  // };
+
+    render() {
+
+        console.log(this.state.storeInfo)
+
+
+        return (
+        <div>
+
+
+
          <Wrapper>
 
           <StoreLogin
-          // id={userInfo[0].id}
-          // userName={userInfo[0].name}
-          // userDescription={userInfo[0].description}
-         >
-           {this.state.products.map(products => 
-            <ProductCard
-            removeItem={this.removeItem}
-            id={products.id}
-            key={products.id}
-            name={products.name}
-            img={products.img}
-            description={products.description}
-            price={products.price}
+                id={this.state.storeInfo._id}
+                userName={this.state.storeInfo.name}
+                userDescription={this.state.storeInfo.description}
             >
-              <Edit 
-              removeItem={this.removeItem}
-              id={products.id}/>
-            </ProductCard>
-            )}
-          </StoreLogin>
 
-      </Wrapper>
-      </div>
+        {this.state.storeInfo.products && this.state.storeInfo.products.length &&
+        this.state.storeInfo.products.map((product)  =>
+            <ProductCard
+            id={product._id}
+            key={product._id}
+            name={product.name}
+            img={product.img}
+            description={product.description}
+            price={product.price}
+            deleteItem={this.deleteItem}
+            >
+
+
+
+            <Edit 
+              id={product._id}
+              deleteItem={this.deleteItem}
+
+              />
+
+            </ProductCard>
+
+        )}
+
+        <UploadCard />
+        </StoreLogin>
+
+        </Wrapper>
+        </div>
     );
   }
 }

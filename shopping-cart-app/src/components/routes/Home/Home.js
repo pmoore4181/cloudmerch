@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import StoreCard from '../../StoreCard';
 import Wrapper from '../../Wrapper';
-import Header from '../../Header';
-import StoreLogin from "../../StoreLogin";
-import friends from '../../../friends.json';
-import products from '../../../StoreOwner.json';
+// import Header from '../../Header';
+// import StoreLogin from "../../StoreLogin";
 import './Home.css';
 
 class Home extends Component {
@@ -19,7 +17,7 @@ class Home extends Component {
     }
 
     componentDidMount() {
-        fetch('/stores/products')
+        fetch('/stores/products', {method: 'GET'})
         .then(res => res.json())
         .then(stores => this.setState({stores}))
     }
