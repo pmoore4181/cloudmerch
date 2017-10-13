@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import StoreCard from '../../StoreCard';
+// import StoreCard from '../../StoreCard';
 import ProductCard from '../../ProductCard';
 import Wrapper from '../../Wrapper';
-import Header from '../../Header';
+// import Header from '../../Header';
 import StoreLogin from "../../StoreLogin";
-import friends from '../../../friends.json';
 import './Shop.css';
 
 class Shop extends Component {
@@ -16,10 +15,12 @@ class Shop extends Component {
     }
 
    componentDidMount() {
-    fetch('/stores/' + this.props.match.params.id)
+    fetch('/stores/' + this.props.match.params.id, {method: 'GET'})
         .then(res => res.json())
         .then((storeInfo) => {this.setState({ storeInfo: storeInfo })})
    }
+
+   // <Header location="Search all stores"/>
 
   // removeStore = id => {
   //   // Filter this.state.friends for friends with an id not equal to the id being removed
@@ -33,7 +34,7 @@ class Shop extends Component {
     return (
      <div>
 
-        <Header location="Search all stores"/>
+        
 
         <Wrapper>
 
@@ -56,7 +57,7 @@ class Shop extends Component {
                 />
                 )
             }
-            
+
             </StoreLogin>
           
       </Wrapper>

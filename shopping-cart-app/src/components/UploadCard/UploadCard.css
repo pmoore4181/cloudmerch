@@ -1,0 +1,62 @@
+
+.card {
+  height: 375px;
+  width: 324px;
+  border-radius: 3.5px;
+  overflow: hidden;
+  position: relative;
+  margin: 30px;
+}
+.card:active, .card:hover{
+  box-shadow: 0 6px 12px #999, 0 6px 12px #999;
+}
+.price{
+  font-size: 2em;
+  color: #5F7181;
+  font-family: 'Source Sans Pro', sans-serif;
+  margin-left: 8px;
+}
+.price:active, .price:hover{
+  font-size: 3em;
+  color: black;
+
+}
+
+img{
+  border: none;
+}
+
+.image{
+  height: 175px;
+  margin: 5%;
+  margin: 15px 15px 15px 47px;
+  margin-left: ;
+  border-radius: 2%;
+}
+
+.card-content{
+  text-align: center;
+ /* height: 100%;
+  width: 100%;
+  padding-bottom: 15px;
+  padding-top: 12px;*/
+}
+.storeName{
+  font-family: 'Open Sans', sans-serif;
+  color: #657E8C;
+}
+
+.description{
+  color: #5F7181;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.submit-button{
+  border: 1px solid black;
+}
+
+
+.remove:hover{
+  color: black;
+}
+
