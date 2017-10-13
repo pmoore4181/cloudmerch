@@ -13,8 +13,8 @@ class UploadCard extends React.Component {
                 price: ''
             }
         }; 
-        this.handleSubmit = this.handleSubmit.bind(this) 
         this.handleChange = this.handleChange.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
 
     handleChange(event) {
@@ -23,17 +23,10 @@ class UploadCard extends React.Component {
         this.setState(newState); 
     }
 
-    handleSubmit(event)  {
-        event.preventDefault();
-        console.log(this.props.storeId)
-        console.log(JSON.stringify(this.state.form))
-        return fetch('/stores/' + this.props.storeId + '/products', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' }, 
-            body: JSON.stringify(this.state.form)
-    })
-    .then(response => response.json())
+    handleSubmit() {
+        this.props.onSubmit(this.state.form)
     }
+
 
     render() {
         const { form } = this.state;
@@ -54,7 +47,7 @@ class UploadCard extends React.Component {
     <input type="number"  name="price" value={form.price} onChange={this.handleChange} placeholder="Price"/>
     <label htmlFor="image">Upload product image</label>
     <input type="file"  name="image" />
-    <input type="submit" value="submit" className="submit-button"/>
+    <input type="submit" value="submit" className="submit-button" />
     </form>
     </div>
   </div>
