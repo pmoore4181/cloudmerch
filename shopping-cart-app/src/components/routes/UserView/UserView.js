@@ -31,19 +31,32 @@ class UserView extends Component {
     }
 
     deleteItem(id) {
+
+        let newStoreInfo = 
+        // (this.state.storeInfo.products && this.state.storeInfo.products.length && 
+            this.state.storeInfo.products.filter(product => id !== product._id);
+ 
+            // );
+
+        this.state.storeInfo.products = newStoreInfo;
+        
+        // this.setState({storeInfo.products: storeInfo});
+
+        this.forceUpdate();
+
+
         fetch('/products/' + id, {method: 'DELETE'})
-        .then(
+
+        .then()
             
-            function() 
-            {
+            // function() {}
+        //     {
 
             // console.log(res)
 
             // console.log(this.state.storeInfo)
 
-            let products = (this.state.storeInfo.products && this.state.storeInfo.products.length && this.state.storeInfo.products.filter(product => id !== product._id));
-        
-            this.setState({products});
+            
             
             // const products = (this.state.storeInfo.products && this.state.storeInfo.products.length && this.state.storeInfo.products.filter(products => products._id !== id));
   //   // Set this.state.friends equal to the new friends array
@@ -57,8 +70,8 @@ class UserView extends Component {
             //     if (products) {
             //     this.setState({ storeInfo: products})
             // }
-        }
-        )
+        // }
+        // )
         
         .catch( err => console.error(err))  
     }
