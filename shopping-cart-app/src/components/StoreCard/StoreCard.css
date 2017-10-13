@@ -42,8 +42,7 @@
   width: 100%;
 }
 .storeName{
-  font-family: 'Nosifer', cursive;
-  color:;
+  color: #5F7181 !important;
 }
 .description{
   color: #5F7181;

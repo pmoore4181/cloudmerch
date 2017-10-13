@@ -23,15 +23,21 @@
 img{
   border: none;
 }
+.card-image{
+  margin: 0;
+  padding: 0;
+
+}
 
 .product-image{
-  height: 175px;
+  height: auto;
+  max-height: 190px;
+  width: 298px;
+
   margin: 5%;
-  margin: 15px 15px 15px 47px;
+  overflow: hidden;
   margin-left: ;
   border-radius: 2%;
- 
-  
 }
 .product-card-content{
   
@@ -51,6 +57,9 @@ img{
 .description{
   color: #5F7181;
   font-family: 'Source Sans Pro', sans-serif;
+  height: 70px;
+  width: 250px;
+  overflow: scroll;
 }
 
 

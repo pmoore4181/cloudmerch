@@ -15,7 +15,7 @@ const StoreCard = props => (
     </div>
   </div>
     <div className="card-content store-card-content" data-id={props.id}>
-       <p className="storeName" data-id={props.id}>{props.name}</p>
+       <p className="storeName subtitle" data-id={props.id}>{props.name}</p>
       <div className="description" data-id={props.id}>
         {props.description}
       </div>
