@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import StoreCard from '../../StoreCard';
+
 import Wrapper from '../../Wrapper';
-import Header from '../../Header';
-import StoreLogin from "../../StoreLogin";
 import Cart from "../../Cart";
 import cartItems from '../../../cartItems.json';
 import './Checkout.css';

@@ -49,7 +49,6 @@ class UserView extends Component {
         .catch( err => console.error(err))  
     }
 
-
   addItem(headingStuff)  {
 
         console.log(headingStuff);
