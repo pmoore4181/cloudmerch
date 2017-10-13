@@ -54,7 +54,7 @@ class Header extends Component {
             </div>
           </div>
           <div className="navbar-end">
-            <Link to="/shop" className="sell-with-us">Sell with us!</Link>
+            <Link to="/signup" className="sell-with-us">Sell with us!</Link>
             <ul className="seller-login">{this.renderContent()}</ul>
             <Link to="/checkout" className="cart button"><i className="fa fa-shopping-cart"></i></Link>
           </div>
