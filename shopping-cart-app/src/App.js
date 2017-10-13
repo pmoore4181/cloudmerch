@@ -9,6 +9,7 @@ import Shop from './components/routes/Shop';
 import Checkout from './components/routes/Checkout';
 import Header from './components/Header';
 import Signup from './components/routes/Signup';
+import LocalLogin from './components/routes/LocalLogin';
 
 class App extends Component {
   componentDidMount() {
@@ -25,6 +26,7 @@ class App extends Component {
           <Route path="/shop/:id" component={Shop} />
           <Route path="/checkout" component={Checkout} />
           <Route path="/signup" component={Signup} />
+          <Route path="/local-login" component={LocalLogin} />
         </div>
       </Router>
     );

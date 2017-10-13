@@ -26,11 +26,28 @@ module.exports = function(app, passport) {
     });
 
     // process the login form
-        app.post('/login', passport.authenticate('local-login', {
-            successRedirect : '/profile', // redirect to the secure profile section
-            failureRedirect : '/login', // redirect back to the signup page if there is an error
-            failureFlash : true // allow flash messages
-        }));
+    app.post('/login', passport.authenticate('local-login', {
+        // successRedirect : '/profile', // redirect to the secure profile section
+        // failureRedirect : '/local-login', // redirect back to the signup page if there is an error
+        // failureFlash : true // allow flash messages
+    }), function(req, res){
+
+
+        // res.json({redirect: '/'});
+        // console.log(req.user._id);
+
+        Sellers.findById(req.user._id)
+
+                .populate("Stores")
+
+                .exec(function(err, doc) {
+                    if (err) {
+                        console.log(err);
+                    } else {
+                        res.json(doc);
+                    }
+                })
+    });
 
     // =====================================
     // SIGNUP ==============================
@@ -49,9 +66,7 @@ module.exports = function(app, passport) {
 
     // process the signup form
     app.post('/signup', passport.authenticate('local-signup', {
-        successRedirect : '/', // redirect to the secure profile section
         failureRedirect : '/signup', // redirect back to the signup page if there is an error
-        failureFlash : true // allow flash messages
     }), function(req, res) {
         var newSeller = new Sellers(req.body);
 
@@ -62,6 +77,9 @@ module.exports = function(app, passport) {
                 console.log("Seller posted to db")
                 res.send(doc)
             }
+        }).then(function(req, res) {
+            console.log('==============================================REQ: ' + req);
+            console.log('==============================================RES: ' + res);
         })
     });
 

@@ -1,25 +1,23 @@
 import React, { Component } from 'react';
 import Wrapper from '../../Wrapper';
 import Header from '../../Header';
-import SignupAction from './SignupAction'
-import './Signup.css';
+import LocalLoginAction from './LocalLoginAction'
+import './LocalLogin.css';
 
-class Signup extends Component {
+class LocalLogin extends Component {
 	
 	constructor(props) {
 	    super(props);
 	    this.state = {
-	    	name: '', 
-	    	email: '', 
-	    	storeName: '', 
+	    	name: '',  
 	    	password: ''
 	    };
-	    // use post function from SignupAction.js
-	    this.SignupAction = new SignupAction();
+	    // use post function from LocalLoginAction.js
+	    this.LocalLoginAction = new LocalLoginAction();
 
 	    this.handleChange = this.handleChange.bind(this);
 	    this.handleSubmit = this.handleSubmit.bind(this);
-	  }
+	}
 
 	  handleChange(event) {
     	
@@ -34,7 +32,7 @@ class Signup extends Component {
 
   	  handleSubmit(event) {
   	      event.preventDefault();
-  	      this.SignupAction.signupUser(this.state.name, this.state.email, this.state.password);
+  	      this.LocalLoginAction.loginUser(this.state.name, this.state.password);
   	      // this.props.history.push('/local-login');
   	      // console.log(this.state.name);
   	      // console.log(this.state.email);
@@ -49,13 +47,8 @@ class Signup extends Component {
 				<h1>Sign up Today!</h1>
 				<form onSubmit={this.handleSubmit}>
 				  <label>
-				    Name:
+				    Username:
 				    <input type="text" name="name" value={this.state.value} onChange={this.handleChange} />
-				  </label>
-				  <br />
-				  <label>
-				    Email:
-				    <input type="text" name="email" value={this.state.value} onChange={this.handleChange} />
 				  </label>
 				  <br />
 				  <label>
@@ -70,4 +63,4 @@ class Signup extends Component {
 	}
 }
 
-export default Signup;
+export default LocalLogin;
