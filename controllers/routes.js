@@ -77,7 +77,7 @@ router.get("/sellers/:sellerid/stores/", function(req, res) {
             if (err) {
                 console.log(err)
             } else {
-                res.json(doc.stores)
+                res.json(doc)
             }
         })
 })
@@ -206,6 +206,7 @@ router.post("/stores/:storeid/products", function(req, res) {
                     console.log(err)
                 } else {
                     res.send(doc);
+                    console.log(`Product added to store ${req.params.storeid}`)
                 }
             })
         }

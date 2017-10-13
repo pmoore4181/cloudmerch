@@ -1,9 +1,40 @@
 import React from 'react';
 import './UploadCard.css';
 
+class UploadCard extends React.Component {
 
-const UploadCard = props => (
+    constructor(props) {
+        super(props);
+        this.state = {
+            form: {
+                name: '',
+                description: '',
+                tags: '',
+                price: ''
+            }
+        }; 
+        this.handleChange = this.handleChange.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
+    }
+
+    handleChange(event) {
+        let newState = this.state; 
+        newState.form[event.target.name] = event.target.value; 
+        this.setState(newState); 
+    }
+
+    handleSubmit() {
+        this.props.onSubmit(this.state.form)
+    }
+
+
+    render() {
+        const { form } = this.state;
+
+        return (
+            <div>
   <div className="card">
+          
   <div className="card-header subtitle upload-card-header">Upload New Product</div>
 
   <div className ="card-content form-card-content">
@@ -30,13 +61,13 @@ const UploadCard = props => (
         <input className="input new-product" type="file" id="image" />
     </div>
     <button type="submit" className="button submit-button">Submit</button>
+
     </form>
     </div>
-
-
-      
-
   </div>
-);
+  </div>
+  )
+}
+};
 
 export default UploadCard;

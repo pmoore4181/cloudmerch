@@ -22,22 +22,12 @@ class Shop extends Component {
 
    // <Header location="Search all stores"/>
 
-  // removeStore = id => {
-  //   // Filter this.state.friends for friends with an id not equal to the id being removed
-  //   const friends = this.state.friends.filter(friend => friend.id !== id);
-  //   // Set this.state.friends equal to the new friends array
-  //   this.setState({ friends });
-  // };  
-
-  // Map over this.state.friends and render a FriendCard component for each friend object
   render() {
     return (
      <div>
-
         
         <Header />
         <Wrapper>
-
             <StoreLogin
                 id={this.state.storeInfo._id}
                 userName={this.state.storeInfo.name}
@@ -47,7 +37,6 @@ class Shop extends Component {
             {this.state.storeInfo.products && this.state.storeInfo.products.length &&
  this.state.storeInfo.products.map((product)  =>
                 <ProductCard
-                    // removeItem={this.removeItem}
                     id={product._id}
                     key={product._id}
                     name={product.name}
@@ -59,12 +48,10 @@ class Shop extends Component {
             }
 
             </StoreLogin>
-          
       </Wrapper>
       </div>
     );
   }
 }
-
 
 export default Shop;

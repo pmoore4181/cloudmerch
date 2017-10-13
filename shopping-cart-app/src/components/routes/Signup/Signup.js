@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import Wrapper from '../../Wrapper';
+
 import Header from '../../Header';
 import SignupAction from './SignupAction'
 import './Signup.css';
@@ -35,11 +35,6 @@ class Signup extends Component {
   	  handleSubmit(event) {
   	      event.preventDefault();
   	      this.SignupAction.signupUser(this.state.name, this.state.email, this.state.password);
-  	      this.props.history.push('/');
-  	      // console.log(this.state.name);
-  	      // console.log(this.state.email);
-  	      // console.log(this.state.password);
-
   	  }
 
 
