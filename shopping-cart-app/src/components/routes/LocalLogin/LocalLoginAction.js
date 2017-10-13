@@ -8,9 +8,8 @@ class LocalLoginAction {
       password: password
     })
     .then(res => {
-    	// console.log(res);
-    	window.location = '/shop/' + res.data.stores[0];
-      // console.log('res.data');
+    	window.location = '/user-login/' + res.data.stores[0];
+      res.json();
     })
     .catch(err => console.log(err))
   }

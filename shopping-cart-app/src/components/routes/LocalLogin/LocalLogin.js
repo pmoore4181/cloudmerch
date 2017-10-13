@@ -33,11 +33,6 @@ class LocalLogin extends Component {
   	  handleSubmit(event) {
   	      event.preventDefault();
   	      this.LocalLoginAction.loginUser(this.state.name, this.state.password);
-  	      // this.props.history.push('/local-login');
-  	      // console.log(this.state.name);
-  	      // console.log(this.state.email);
-  	      // console.log(this.state.password);
-
   	  }
 
 
