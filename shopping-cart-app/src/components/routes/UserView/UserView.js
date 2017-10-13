@@ -89,6 +89,7 @@ class UserView extends Component {
             description={product.description}
             price={product.price}
             deleteItem={this.deleteItem}
+            quantityText={"Quantity: "}
             quantity={product.quantity}
             >
 
