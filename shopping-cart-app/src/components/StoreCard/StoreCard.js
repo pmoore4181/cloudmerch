@@ -2,6 +2,7 @@ import React from 'react';
 import './StoreCard.css';
 
 const StoreCard = props => (
+
   <div className="card" onClick={props.onClick} data-id={props.id}>
   <div className="card-header" data-id={props.id}>
     <div className="card-image" data-id={props.id}>
