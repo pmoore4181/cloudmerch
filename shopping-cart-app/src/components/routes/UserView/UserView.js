@@ -6,8 +6,6 @@ import Wrapper from '../../Wrapper';
 import StoreLogin from "../../StoreLogin";
 import UploadCard from "../../UploadCard";
 
-
-
 import './UserView.css';
 
 const Edit = props => (
@@ -20,7 +18,9 @@ class UserView extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { storeInfo: ''}; 
+        this.state = { 
+            storeInfo: ''
+            }; 
         this.deleteItem = this.deleteItem.bind(this)   
     }
 
@@ -31,67 +31,23 @@ class UserView extends Component {
     }
 
     deleteItem(id) {
-
-        let newStoreInfo = 
-        // (this.state.storeInfo.products && this.state.storeInfo.products.length && 
-            this.state.storeInfo.products.filter(product => id !== product._id);
- 
-            // );
-
+        //workaround - manually update state and then force update
+        let newStoreInfo = this.state.storeInfo.products.filter(product => id !== product._id);
         this.state.storeInfo.products = newStoreInfo;
-        
-        // this.setState({storeInfo.products: storeInfo});
-
         this.forceUpdate();
-
-
+        // then make request to db to delete product
         fetch('/products/' + id, {method: 'DELETE'})
-
         .then()
-            
-            // function() {}
-        //     {
-
-            // console.log(res)
-
-            // console.log(this.state.storeInfo)
-
-            
-            
-            // const products = (this.state.storeInfo.products && this.state.storeInfo.products.length && this.state.storeInfo.products.filter(products => products._id !== id));
-  //   // Set this.state.friends equal to the new friends array
-            // this.setState({ storeInfo: products });
-
-
-            // console.log(res)
-            // if (this.state.storeInfo.products && this.state.storeInfo.products.length) {
-            //     const products = this.state.storeInfo.products.filter(products => products._id !== id);
-            //     console.log(products)
-            //     if (products) {
-            //     this.setState({ storeInfo: products})
-            // }
-        // }
-        // )
-        
         .catch( err => console.error(err))  
     }
 
-  // removeItem = id => {
-  //   // Filter this.state.friends for friends with an id not equal to the id being removed
-  //   const products = this.state.products.filter(products => products.id !== id);
-  //   // Set this.state.friends equal to the new friends array
-  //   this.setState({ products });
-  // };
-
     render() {
 
-        console.log(this.state.storeInfo)
+        const { pName, description, price, tags } = this.state;
 
 
         return (
         <div>
-
-
 
          <Wrapper>
 
@@ -113,8 +69,6 @@ class UserView extends Component {
             deleteItem={this.deleteItem}
             >
 
-
-
             <Edit 
               id={product._id}
               deleteItem={this.deleteItem}
@@ -125,7 +79,7 @@ class UserView extends Component {
 
         )}
 
-        <UploadCard />
+        <UploadCard storeId={this.props.match.params.id} />
         </StoreLogin>
 
         </Wrapper>

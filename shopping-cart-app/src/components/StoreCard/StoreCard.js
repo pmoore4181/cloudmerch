@@ -2,6 +2,7 @@ import React from 'react';
 import './StoreCard.css';
 
 const StoreCard = props => (
+
   <div className="card" onClick={props.onClick} data-id={props.id}>
   <div className="card-header" data-id={props.id}>
     <div className="card-image" data-id={props.id}>
@@ -14,7 +15,7 @@ const StoreCard = props => (
     </div>
   </div>
     <div className="card-content" data-id={props.id}>
-       <p className="storeName">{props.name}</p>
+       <p className="storeName" data-id={props.id}>{props.name}</p>
       <div className="description" data-id={props.id}>
         {props.description}
       </div>

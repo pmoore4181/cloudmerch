@@ -206,6 +206,7 @@ router.post("/stores/:storeid/products", function(req, res) {
                     console.log(err)
                 } else {
                     res.send(doc);
+                    console.log(`Product added to store ${req.params.storeid}`)
                 }
             })
         }
