@@ -14,13 +14,12 @@ const StoreCard = props => (
       <img className="store-image" alt={props.name} src={props.storeImage} data-id={props.id}/>
     </div>
   </div>
-    <div className="card-content" data-id={props.id}>
+    <div className="card-content store-card-content" data-id={props.id}>
        <p className="storeName" data-id={props.id}>{props.name}</p>
       <div className="description" data-id={props.id}>
         {props.description}
       </div>
     </div>
-
   </div>
 );
 

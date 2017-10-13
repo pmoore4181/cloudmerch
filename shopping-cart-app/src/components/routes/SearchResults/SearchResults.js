@@ -4,38 +4,47 @@ import ProductCard from '../../ProductCard';
 import Wrapper from '../../Wrapper';
 import Header from '../../Header';
 import StoreLogin from "../../StoreLogin";
-import './Shop.css';
+import './SearchResults.css';
 
-class Shop extends Component {
+class SearchResults extends Component {
 
   constructor(props) {
         super(props);
-        this.state = { storeInfo: '', products: []};
+        this.state = { results: [], value: ''};
         
     }
 
    componentDidMount() {
-    fetch('/stores/' + this.props.match.params.id, {method: 'GET'})
+    fetch('/products/search/' + this.props.match.params.tag, {method: 'GET'})
         .then(res => res.json())
-        .then((storeInfo) => {this.setState({ storeInfo: storeInfo })})
+        .then((results) => {this.setState({ results: results })})
    }
-
-   // <Header location="Search all stores"/>
+   handleClick(e) {
+        console.log('The link was clicked.' +  e.target.value)
+        this.setState({value: e.target.value})
+        window.location = '/products/search/' + e.state.value
+       
+    }
 
   render() {
     return (
      <div>
-        
-        <Header />
-        <Wrapper>
+         <Header 
+         handleClick={this.handleClick}
+         value={this.state.value}
+         />
+        <Wrapper
+         
+        >
+
+
             <StoreLogin
-                id={this.state.storeInfo._id}
-                userName={this.state.storeInfo.name}
-                userDescription={this.state.storeInfo.description}
+                id="no id"
+                userName="Search Results"
+                userDescription=""
             >
 
-            {this.state.storeInfo.products && this.state.storeInfo.products.length &&
- this.state.storeInfo.products.map((product)  =>
+ {this.state.results.map((product)  =>
                 <ProductCard
                     id={product._id}
                     key={product._id}
@@ -48,10 +57,12 @@ class Shop extends Component {
             }
 
             </StoreLogin>
+          
       </Wrapper>
       </div>
     );
   }
 }
 
-export default Shop;
+
+export default SearchResults;

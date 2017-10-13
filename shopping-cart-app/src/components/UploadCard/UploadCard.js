@@ -10,7 +10,8 @@ class UploadCard extends React.Component {
                 name: '',
                 description: '',
                 tags: '',
-                price: ''
+                price: '',
+                img: ''
             }
         }; 
         this.handleChange = this.handleChange.bind(this)
@@ -34,20 +35,34 @@ class UploadCard extends React.Component {
         return (
             <div>
   <div className="card">
-  <div className ="card-content">
-    <p className="storeName"> Upload New Product </p>
-    <form onSubmit={this.handleSubmit}> 
-    <label htmlFor="name">Product name</label>
-    <input type="text"  name="name" value={form.name} onChange={this.handleChange} placeholder="Product name"/>
-    <label htmlFor="description">Description</label>
-    <input type="text"  name="description"  value={form.description} onChange={this.handleChange} placeholder="Description"/>
-    <label htmlFor="tags">Tags</label>
-    <input type="text"  name="tags"  value={form.tags} onChange={this.handleChange} placeholder="Tags"/>
-    <label htmlFor="price">Price</label>
-    <input type="number"  name="price" value={form.price} onChange={this.handleChange} placeholder="Price"/>
-    <label htmlFor="image">Upload product image</label>
-    <input type="file"  name="image" />
-    <input type="submit" value="submit" className="submit-button" />
+          
+  <div className="card-header subtitle upload-card-header">Upload New Product</div>
+
+  <div className ="card-content form-card-content">
+   
+    <form onSubmit={this.handleSubmit}>
+    <div className="field">
+        <label htmlFor="name">Product name: </label>
+        <input className="input new-product" type="text" name="name" value={form.name} onChange={this.handleChange} placeholder="Product name"/>
+    </div>
+    <div className="field">
+        <label htmlFor="description">Description: </label>
+        <input className="input new-product" type="text" name="description"  value={form.description} onChange={this.handleChange} placeholder="Description"/>
+    </div>
+    <div className="field">
+        <label htmlFor="tags">Tags: </label>
+        <input className="input new-product" type="text" name="tags"  value={form.tags} onChange={this.handleChange} placeholder="Tags"/>
+    </div>
+    <div className="field">
+        <label htmlFor="price">Price: </label>
+        <input className="input new-product" type="text" name="price" value={form.price} onChange={this.handleChange} placeholder="Price"/>
+    </div>
+    <div className="field">
+        <label htmlFor="image">Upload image url: </label>
+        <input className="input new-product" type="text" name="img" value={form.img} onChange={this.handleChange} />
+    </div>
+    <button type="submit" className="button submit-button">Submit</button>
+
     </form>
     </div>
   </div>
