@@ -30,8 +30,8 @@ class Header extends Component {
           <div className="navbar-item">
 
             <Link to="/" className="logo">
-              <div className="title"> CM </div>
-              <div className="subtitle"> cloudmerch </div>
+              <div className="title"> cM </div>
+              <div className="subtitle"> cloudMerch </div>
             </Link>
 
           </div>
