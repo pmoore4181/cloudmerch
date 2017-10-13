@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import Wrapper from '../../Wrapper';
-import Header from '../../Header';
+
 import SignupAction from './SignupAction'
 import './Signup.css';
 

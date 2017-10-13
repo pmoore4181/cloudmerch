@@ -60,3 +60,6 @@ typings/
 .DS_Store
 dev.js
 build/
+productsRoutes.js
+productReducer.js
+

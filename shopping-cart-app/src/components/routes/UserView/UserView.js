@@ -43,7 +43,7 @@ class UserView extends Component {
 
     render() {
 
-        const { pName, description, price, tags } = this.state;
+        // const { pName, description, price, tags } = this.state;
 
 
         return (
