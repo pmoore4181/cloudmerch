@@ -26,7 +26,7 @@ class App extends Component {
           <Route path="/user-login/:id" component={UserView} />
           <Route path="/shop/:id" component={Shop} />
           <Route path="/checkout" component={Checkout} />
-          <Route path="/signup" component={Signup} /
+          <Route path="/signup" component={Signup} />
           <Route path="/search-results/:tag" component={SearchResults} />
           <Route path="/local-login" component={LocalLogin} />
 

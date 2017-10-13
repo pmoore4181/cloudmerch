@@ -55,11 +55,11 @@ class UploadCard extends React.Component {
     </div>
     <div className="field">
         <label htmlFor="price">Price: </label>
-        <input className="input new-product" type="text" name="price" value={form.price} onChange={this.handleChange} placeholder="Price"/>
+        <input className="input new-product" type="number" name="price" value={form.price} onChange={this.handleChange} placeholder="Price"/>
     </div>
     <div className="field">
         <label htmlFor="image">Upload image url: </label>
-        <input className="input new-product" type="text" name="img" value={form.img} onChange={this.handleChange} />
+        <input className="input new-product" type="text" name="img" value={form.img} onChange={this.handleChange} placeholder="Image url" />
     </div>
     <button type="submit" className="button submit-button">Submit</button>
 
