@@ -8,9 +8,9 @@ class SignupAction {
       email: email,
       password: password
     })
-    .then(res => this.setState({ name: res.data.name }))
-    .catch(err => console.log(err))
+    .then(res => res.json(res));
   }
+
 
 }
 

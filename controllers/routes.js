@@ -77,7 +77,7 @@ router.get("/sellers/:sellerid/stores/", function(req, res) {
             if (err) {
                 console.log(err)
             } else {
-                res.json(doc.stores)
+                res.json(doc)
             }
         })
 })
