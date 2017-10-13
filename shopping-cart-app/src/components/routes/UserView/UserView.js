@@ -25,7 +25,8 @@ class UserView extends Component {
                 name: '',
                 description: '',
                 tags: '',
-                price: ''
+                price: '',
+                img: ''
                 }
             }; 
         this.deleteItem = this.deleteItem.bind(this)  
