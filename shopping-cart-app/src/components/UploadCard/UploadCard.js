@@ -10,7 +10,8 @@ class UploadCard extends React.Component {
                 name: '',
                 description: '',
                 tags: '',
-                price: ''
+                price: '',
+                img: ''
             }
         }; 
         this.handleChange = this.handleChange.bind(this)
@@ -39,26 +40,26 @@ class UploadCard extends React.Component {
 
   <div className ="card-content form-card-content">
    
-    <form action="/" method="POST" encType="multipart/form-data">
+    <form onSubmit={this.handleSubmit}>
     <div className="field">
         <label htmlFor="name">Product name: </label>
-        <input className="input new-product" type="text" id="name" placeholder="Product name"/>
+        <input className="input new-product" type="text" name="name" value={form.name} onChange={this.handleChange} placeholder="Product name"/>
     </div>
     <div className="field">
         <label htmlFor="description">Description: </label>
-        <input className="input new-product" type="text" id="description" placeholder="Description"/>
+        <input className="input new-product" type="text" name="description"  value={form.description} onChange={this.handleChange} placeholder="Description"/>
     </div>
     <div className="field">
         <label htmlFor="tags">Tags: </label>
-        <input className="input new-product" type="text" id="tags" placeholder="Tags"/>
+        <input className="input new-product" type="text" name="tags"  value={form.tags} onChange={this.handleChange} placeholder="Tags"/>
     </div>
     <div className="field">
         <label htmlFor="price">Price: </label>
-        <input className="input new-product" type="text" id="price" placeholder="Price"/>
+        <input className="input new-product" type="text" name="price" value={form.price} onChange={this.handleChange} placeholder="Price"/>
     </div>
     <div className="field">
-        <label htmlFor="image">Upload product image: </label>
-        <input className="input new-product" type="file" id="image" />
+        <label htmlFor="image">Upload image url: </label>
+        <input className="input new-product" type="text" name="img" value={form.img} onChange={this.handleChange} />
     </div>
     <button type="submit" className="button submit-button">Submit</button>
 
