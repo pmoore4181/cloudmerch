@@ -19,9 +19,17 @@ class UserView extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            storeInfo: ''
+            storeInfo: '',
+            // handlerValue: true
+            form: {
+                name: '',
+                description: '',
+                tags: '',
+                price: ''
+                }
             }; 
-        this.deleteItem = this.deleteItem.bind(this)   
+        this.deleteItem = this.deleteItem.bind(this)  
+        this.addItem = this.addItem.bind(this)
     }
 
     componentDidMount() {
@@ -41,10 +49,23 @@ class UserView extends Component {
         .catch( err => console.error(err))  
     }
 
+
+  addItem(headingStuff)  {
+
+        console.log(headingStuff);
+        let newState = this.state
+        newState.form = headingStuff;
+        console.log(newState);
+        console.log((this.state.form))
+        return fetch('/stores/' + this.props.match.params.id + '/products', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' }, 
+            body: JSON.stringify(this.state.form)
+
+    }).then(response => response.json())
+}
+
     render() {
-
-        const { pName, description, price, tags } = this.state;
-
 
         return (
         <div>
@@ -79,7 +100,7 @@ class UserView extends Component {
 
         )}
 
-        <UploadCard storeId={this.props.match.params.id} />
+        <UploadCard storeId={this.props.match.params.id} onSubmit={this.addItem}/>
         </StoreLogin>
 
         </Wrapper>
