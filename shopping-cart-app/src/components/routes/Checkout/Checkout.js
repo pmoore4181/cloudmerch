@@ -46,6 +46,43 @@ class Checkout extends Component {
         
           <div className="column is-4">
           <div className="box total-box">
+          <h1 className="title checkout-title">Ready to checkout?</h1>
+
+              <div className='field'>
+                <label className='label'>Name on Card</label>
+                <input className='control input' type='text' />
+              </div>
+     
+           
+              <div className='field'>
+                <label className='label'>Card Number</label>
+                <input autocomplete='off' className='input card-number'  type='text'/>
+              </div>
+
+            
+              <div className='field'>
+                <label className='label'>CVC</label>
+                <input autocomplete='off' className='input card-cvc' placeholder='ex. 311' size='4' type='text'/>
+                </div>
+
+              <div className='field expiration required'>
+                <label className='label'>Expiration</label>
+                <input className='input card-expiry-month' placeholder='MM'  type='text'/>
+                <input className='input card-expiry-year' placeholder='YYYY' type='text'/>
+              </div>
+
+              <div className='field' >        
+              <div className='label'>
+                  Total:
+                  <span className='amount'>  $300</span>
+                </div>
+
+            </div>
+           
+              <div className='field'>
+                <button className='button' type='submit'>Pay</button>
+              </div>
+     
           </div>
           </div>
           </div>

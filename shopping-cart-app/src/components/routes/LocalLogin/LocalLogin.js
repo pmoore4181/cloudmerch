@@ -39,7 +39,9 @@ class LocalLogin extends Component {
 	render () {
 		return (
 			<div>
-				<h1>Sign up Today!</h1>
+			<Header/>
+			<Wrapper>
+			<h1>Sign up Today!</h1>
 				<form onSubmit={this.handleSubmit}>
 				  <label>
 				    Username:
@@ -53,6 +55,7 @@ class LocalLogin extends Component {
 				  <br />
 				  <input type="submit" value="Submit" />
 				</form>
+			</Wrapper>
 			</div>
 		);
 	}

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import router from 'react-router-dom';
+// import router from 'react-router-dom';
 
 class SignupAction {
 
