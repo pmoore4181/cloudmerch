@@ -39,20 +39,33 @@ class LocalLogin extends Component {
 	render () {
 		return (
 			<div>
-				<h1>Sign up Today!</h1>
+			<Header/>
+			<Wrapper>
+			<section className="hero">
+			   <div className="hero-body">
+			   	<div className="container store-name">
+			     <h1 className="title">Sign In</h1>
+			    </div>
+			   </div>
+			</section>
+			<div className="container form-container"> 
 				<form onSubmit={this.handleSubmit}>
-				  <label>
+				<div className="field">
+					<label className="label">
 				    Username:
-				    <input type="text" name="name" value={this.state.value} onChange={this.handleChange} />
+				    <input type="text" name="name" placeholder="Username" className="input" value={this.state.value} onChange={this.handleChange} />
 				  </label>
-				  <br />
-				  <label>
+				 </div>
+				<div className="field">
+				  	<label className="label">
 				    Password:
-				    <input type="password" name="password" value={this.state.value} onChange={this.handleChange} />
+				    <input type="password" className="input" placeholder="Password" name="password" value={this.state.value} onChange={this.handleChange} />
 				  </label>
-				  <br />
-				  <input type="submit" value="Submit" />
+				</div>
+				  <button className="button signIn-button" type="submit">Sign In</button>
 				</form>
+				</div>
+			</Wrapper>
 			</div>
 		);
 	}

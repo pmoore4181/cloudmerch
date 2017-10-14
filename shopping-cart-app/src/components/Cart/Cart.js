@@ -14,10 +14,12 @@ const Cart = props => (
     <div className="media-content">
       <div className="content">
          <span onClick={() => props.removeItem(props.id)} className="checkout-item-remove">
-            <button className="checkout-item-remove"> remove item</button>
+            <button className="button checkout-item-remove"> remove item</button>
           </span>
+          <span>
           <div className="title checkout-item-title">{props.name}</div>
-          <div className="subtitle">{props.quantity} at ${props.price} total = ${props.quantity * props.price} </div>
+          <div className="subtitle checkout-item-quantity-and-total">{props.quantity} at ${props.price} total = ${props.quantity * props.price} </div>
+          </span>  
       </div>
     </div>
   </article>

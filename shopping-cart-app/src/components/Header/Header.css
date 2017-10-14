@@ -14,6 +14,7 @@
 }
 .search{
 	border: none !important;
+	
 }
 
 .title{
@@ -53,16 +54,18 @@ button.search{
 	padding: 0 15px;
 	color: #9EC7DD;
 	border: none;
-
-
 }
 
-.seller-login, .sell-with-us{
+.dashboard, .google-login, .sell-with-us{
 	height: 1.5em;
 	font-size: .7em;
 	margin: 7px 15px;
-	margin-top: 13px;
+	/*margin-top: 40px;*/
 	color: #9EC7DD;
+}
+
+.header-links{
+	padding-top: 7px;
 }
 
 .sell-with-us{
@@ -74,6 +77,10 @@ button.search{
 	padding-right: 27px;
 	border-right: solid 1px black;
 	color: #9EC7DD;
+}
+
+.navbar-end{
+	margin-left: 100px;
 }
 
 .log-out{

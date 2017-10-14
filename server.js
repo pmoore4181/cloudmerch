@@ -18,11 +18,6 @@ require('./services/passport');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// tell Node/Express to serve static assets in production
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('shopping-cart-app/build'));
-}
-
 require('./config/passport')(passport); // pass passport for configuration
 
 // Run Morgan and BodyParser
@@ -72,21 +67,21 @@ db
   })
   .once('open', () => {
     console.log('Successfully connected to database!');
-    // done();
   });
 
-// Require the routes and have them pass through the app
-
-// var router = express.Router();
-
-// app.use(router);
-
-// Require our routes file pass our router object
-// require("./controllers/routes")(router);
 
 app.use(routes);
 require('./controllers/passportLocal.js')(app, passport);
 
+// tell Node/Express to serve static assets in production
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('shopping-cart-app/build'));
+
+  const path = require('path');
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'shopping-cart-app', 'build', 'index.html'));
+  });
+}
 
 // LISTEN TO process.env.PORT or 3001 ==========================
 app.listen(PORT, () => {

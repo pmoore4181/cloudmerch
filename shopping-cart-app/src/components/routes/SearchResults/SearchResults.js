@@ -6,6 +6,14 @@ import Header from '../../Header';
 import StoreLogin from "../../StoreLogin";
 import './SearchResults.css';
 
+
+const AddToCartButton = props => (
+  <span onClick={() => props.addToCart(props.id)}  className="remove">
+      <div className="add-product-to-cart-button button">Add to cart</div>
+  </span>
+);
+
+
 class SearchResults extends Component {
 
   constructor(props) {
@@ -25,6 +33,12 @@ class SearchResults extends Component {
         window.location = '/products/search/' + e.state.value
        
     }
+
+  addToCart(id){
+    console.log(id)
+    const cart = []
+    cart.push(this.id)
+  }
 
   render() {
     return (
@@ -52,7 +66,13 @@ class SearchResults extends Component {
                     img={product.img}
                     description={product.description}
                     price={product.price}
-                />
+                >
+                  <AddToCartButton
+                    id={product._id}  
+                    addToCart={this.addToCart}
+                   />
+
+                </ProductCard>
                 )
             }
 
