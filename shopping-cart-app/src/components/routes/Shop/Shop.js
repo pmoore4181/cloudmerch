@@ -18,7 +18,12 @@ class Shop extends Component {
 
   constructor(props) {
         super(props);
-        this.state = { storeInfo: '', products: []};  
+        this.state = { 
+            storeInfo: '', 
+            products: [], 
+            cart: []
+        };  
+        this.addToCart = this.addToCart.bind(this)
     }
 
    componentDidMount() {
@@ -27,10 +32,44 @@ class Shop extends Component {
         .then((storeInfo) => {this.setState({ storeInfo: storeInfo })})
    }
 
-   addToCart(id){
-    console.log(id)
-    const cart = []
-    cart.push(this.id)
+   addToCart(id) {
+    this.setState({ cart : this.state.cart.concat(id)})
+    console.log(this.state)
+    let cartCache = localStorage.getItem('cartCache')
+    if (cartCache) {
+        console.log(cartCache)
+        let JSONCart = JSON.parse(cartCache)
+        console.log(JSONCart);
+        JSONCart.push(id)
+        console.log(JSONCart)
+        localStorage.setItem('cartCache', JSON.stringify(JSONCart))
+    } else {
+        console.log('Cart cache is empty')
+        localStorage.setItem('cartCache', JSON.stringify(this.state.cart))
+    }
+    // localStorage.setItem('cartCache', JSON.stringify(this.state.cart))
+
+//     constructor(){
+//     this.state = {
+//       space_photos= []
+//     }
+// }
+
+// callback = (e) => {
+
+//     this.setState({space_photos: this.state.space_photos.concat(e)})
+
+// }
+
+
+        // {cart: this.state.cart.concat(id)})
+    // let newState = this.state
+    // newState.cart = id
+    // var newCart = this.state.cart.slice()
+    // newCart.push(id)
+    // const newCart = id;
+    // this.setState({cart: newCart})
+    
    }
 
   render() {

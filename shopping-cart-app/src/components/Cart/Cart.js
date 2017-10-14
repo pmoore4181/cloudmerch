@@ -8,7 +8,7 @@ const Cart = props => (
   <article className="media ">
     <div className="media-left">
       <figure className="">
-        <img className="checkout-item-image" src={props.itemImg} alt={props.name}/>
+        <img className="checkout-item-image" src={props.img} alt={props.name}/>
       </figure>
     </div>
     <div className="media-content">
