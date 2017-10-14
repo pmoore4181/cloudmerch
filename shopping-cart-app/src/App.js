@@ -31,7 +31,6 @@ class App extends Component {
           <Route path="/search-results/:tag" component={SearchResults} />
           <Route path="/local-login" component={LocalLogin} />
           <Route path="/add-store/:id" component={AddNewStore} />
-
         </div>
       </Router>
     );
