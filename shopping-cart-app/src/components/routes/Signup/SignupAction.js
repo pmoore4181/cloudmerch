@@ -4,7 +4,7 @@ import router from 'react-router-dom';
 class SignupAction {
 
   signupUser(name, email, password) {
-    axios.post('http://localhost:3001/signup', {
+    axios.post('/signup', {
       name: name,
       email: email,
       password: password

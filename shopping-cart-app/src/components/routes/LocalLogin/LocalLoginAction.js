@@ -3,7 +3,7 @@ import axios from 'axios';
 class LocalLoginAction {
 
   loginUser(name, password) {
-    axios.post('http://localhost:3001/login', {
+    axios.post('/login', {
       name: name,
       password: password
     })

@@ -3,7 +3,7 @@ import axios from 'axios';
 class AddNewStoreAction {
 
   addNewStore(storeName, description, image, id) {
-    axios.post('http://localhost:3001/stores/' + id, {
+    axios.post('/stores/' + id, {
       name: storeName,
       description: description,
       image: image
