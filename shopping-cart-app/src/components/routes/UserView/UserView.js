@@ -21,7 +21,7 @@ const Edit = props => (
                 </div>
                 <div className="control">
                     <div onClick={() => props.updateQuantity(props.id)} className="update-quantity">
-                        <div className="button submit">Submit</div>
+                        <div className="button submit-new-quantity">Submit New Quantity</div>
                     </div>
                 </div>
             </div>
@@ -88,10 +88,8 @@ class UserView extends Component {
 
         return (
         <div>
-          
-        <Wrapper>
         <Header />
-
+        <Wrapper>
           <StoreLogin
                 id={this.state.storeInfo._id}
                 userName={this.state.storeInfo.name}
