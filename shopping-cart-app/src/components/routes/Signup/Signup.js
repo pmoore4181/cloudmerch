@@ -47,7 +47,6 @@ class Signup extends Component {
 			   <div className="hero-body">
 			   	<div className="container store-name">
 			     <h1 className="title">Sign up today!</h1>
-			     <h2 className="subtitle"></h2>
 			    </div>
 			   </div>
 			</section> 
