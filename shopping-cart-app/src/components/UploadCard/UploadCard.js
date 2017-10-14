@@ -33,7 +33,7 @@ class UploadCard extends React.Component {
         const { form } = this.state;
 
         return (
-            <div>
+          
   <div className="card">
           
   <div className="card-header subtitle upload-card-header">Upload New Product</div>
@@ -66,7 +66,7 @@ class UploadCard extends React.Component {
     </form>
     </div>
   </div>
-  </div>
+  
   )
 }
 };

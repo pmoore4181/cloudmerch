@@ -9,9 +9,24 @@ import UploadCard from "../../UploadCard";
 import './UserView.css';
 
 const Edit = props => (
-  <span onClick={() => props.deleteItem(props.id)}  className="remove">
-    <button className="button remove">Remove Item</button>
-  </span>
+    <div className="user-edit">
+        <div onClick={() => props.deleteItem(props.id)}  className="remove">
+            <button className="button remove">Remove Item</button>
+        </div>
+        <div>
+            <div className="field">
+                <label className="label">Update Quantity: </label>
+                <div className="control">
+                    <input className="input" type="text" placeholder={props.quantity} />
+                </div>
+                <div className="control">
+                    <div onClick={() => props.updateQuantity(props.id)} className="update-quantity">
+                        <div className="button submit">Submit</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 );
 
 class UserView extends Component {
@@ -63,7 +78,11 @@ class UserView extends Component {
             body: JSON.stringify(this.state.form)
 
     }).then(response => response.json())
-}
+    }
+
+    updateQuantity(id, value){
+        console.log("update quantity of "+id+" to "+value)
+    }
 
     render() {
 
@@ -88,7 +107,6 @@ class UserView extends Component {
             img={product.img}
             description={product.description}
             price={product.price}
-            deleteItem={this.deleteItem}
             quantityText={"Quantity: "}
             quantity={product.quantity}
             >
@@ -96,7 +114,8 @@ class UserView extends Component {
             <Edit 
               id={product._id}
               deleteItem={this.deleteItem}
-
+              quantity={product.quantity}
+              updateQuantity={this.updateQuantity}
               />
 
             </ProductCard>
