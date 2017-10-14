@@ -2,8 +2,14 @@
   "name": "shopping-cart-app",
   "version": "0.1.0",
   "private": true,
-  "proxy": 
-    "http://localhost:3001",
+  "proxy": {
+    "/auth/*": {
+      "target": "http://localhost:3001"
+    },
+    "/api/*": {
+      "target": "http://localhost:3001"
+    }
+  },
   "dependencies": {
     "axios": "^0.16.2",
     "prop-types": "^15.5.10",
