@@ -39,7 +39,11 @@ class Header extends Component {
         return;
       case false:
         return (
+          <div>
+          <li><a className="sell-with-us" href="/local-login">Login</a></li>
+          <li><a className="sell-with-us" href="/signup">Sell with us!</a></li>
           <li><a className="google-login" href="/auth/google">Login With Google</a></li>
+          </div>
         );
       default:
         return (
@@ -82,8 +86,6 @@ class Header extends Component {
             </div>
           </div>
           <div className="navbar-end">
-            <Link to="/local-login" className="sell-with-us">Login</Link>
-            <Link to="/signup" className="sell-with-us">Sell with us!</Link>
             <ul className="seller-login">{this.renderContent()}</ul>
             <Link to="/checkout" className="cart button"><i className="fa fa-shopping-cart"></i></Link>
           </div>
