@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
 
 import Header from '../../Header';
-import SignupAction from './SignupAction'
-import './Signup.css';
+import AddNewStoreAction from './AddNewStoreAction'
+import './AddNewStore.css';
 
 class Signup extends Component {
 	
 	constructor(props) {
 	    super(props);
+	    console.log(props);
 	    this.state = {
-	    	name: '', 
-	    	email: '', 
 	    	storeName: '', 
-	    	password: ''
+	    	description: '', 
+	    	image: ''
 	    };
-	    // use post function from SignupAction.js
-	    this.SignupAction = new SignupAction();
+	    // use post function from AddNewUserAction.js
+	    this.AddNewStoreAction = new AddNewStoreAction();
 
 	    this.handleChange = this.handleChange.bind(this);
 	    this.handleSubmit = this.handleSubmit.bind(this);
@@ -34,8 +34,7 @@ class Signup extends Component {
 
   	  handleSubmit(event) {
   	      event.preventDefault();
-  	      this.SignupAction.signupUser(this.state.name, this.state.email, this.state.password);
-  	      
+  	      this.AddNewStoreAction.addNewStore(this.state.storeName, this.state.description, this.state.image, this.props.match.params.id);
   	  }
 
 
@@ -46,7 +45,7 @@ class Signup extends Component {
 			 <section className="hero">
 			   <div className="hero-body">
 			   	<div className="container store-name">
-			     <h1 className="title">Sign up today!</h1>
+			     <h1 className="title">Tell Us About Your Store</h1>
 			     <h2 className="subtitle"></h2>
 			    </div>
 			   </div>
@@ -56,21 +55,21 @@ class Signup extends Component {
 				<form onSubmit={this.handleSubmit}>
 					<div className="field">
 				 		<label className="label">
-				    		Name:
+				    		Store Name:
 				     	</label>
-				    	<input type="text" className="input" placeholder="Name" name="name" value={this.state.value} onChange={this.handleChange} />
+				    	<input type="text" className="input" placeholder="Store Name" name="storeName" value={this.state.value} onChange={this.handleChange} />
 				  	</div>
 				  	<div className="field">
 				  		<label className="label">
-				    		Email:
+				    		Description of Your Store:
 				    	</label>
-				    	<input type="text" className="input" placeholder="Email" name="email" value={this.state.value} onChange={this.handleChange} />
+				    	<input type="text" className="input" placeholder="Description of Your Store" name="description" value={this.state.value} onChange={this.handleChange} />
 				    </div>
 				    <div className="field">
 				  		<label className="label">
-				    		Password:
+				    		Image of Your Store:
 				    	</label>
-				    	<input type="password" className="input" placeholder="Password" name="password" value={this.state.value} onChange={this.handleChange} />
+				    	<input type="password" className="input" placeholder="Paste a Link to an Image of Your Store" name="image" value={this.state.value} onChange={this.handleChange} />
 				    </div>
 				  	<button className="button signup-button"type="submit">Submit</button>
 				</form>
