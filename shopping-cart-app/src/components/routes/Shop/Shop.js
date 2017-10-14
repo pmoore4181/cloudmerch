@@ -6,12 +6,19 @@ import Header from '../../Header';
 import StoreLogin from "../../StoreLogin";
 import './Shop.css';
 
+
+const AddToCartButton = props => (
+  <span onClick={() => props.addToCart(props.id)}  className="remove">
+      <div className="add-product-to-cart-button button">Add to cart</div>
+  </span>
+);
+
+
 class Shop extends Component {
 
   constructor(props) {
         super(props);
-        this.state = { storeInfo: '', products: []};
-        
+        this.state = { storeInfo: '', products: []};  
     }
 
    componentDidMount() {
@@ -20,7 +27,11 @@ class Shop extends Component {
         .then((storeInfo) => {this.setState({ storeInfo: storeInfo })})
    }
 
-   // <Header location="Search all stores"/>
+   addToCart(id){
+    console.log(id)
+    const cart = []
+    cart.push(this.id)
+   }
 
   render() {
     return (
@@ -43,9 +54,14 @@ class Shop extends Component {
                     img={product.img}
                     description={product.description}
                     price={product.price}
-                />
-                )
-            }
+                > 
+                <AddToCartButton
+                  id={product._id}  
+                  addToCart={this.addToCart}
+                 />
+              
+                </ProductCard>
+                )}
 
             </StoreLogin>
       </Wrapper>

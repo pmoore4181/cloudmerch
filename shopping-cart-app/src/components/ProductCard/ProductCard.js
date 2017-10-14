@@ -15,7 +15,7 @@ const ProductCard = props => (
     <div className="card-content product-card-content">
       <box className="product-price"> &#36;{props.price}</box>
       <div className="quantity">{props.quantityText}{props.quantity}</div>
-      <div className="remove">{props.children}</div>
+
       <p className="productName">{props.name}</p>
       <div className="description">
         {props.description}
@@ -25,7 +25,7 @@ const ProductCard = props => (
 
     </div>
     <div className="card__back">
-     <div className="add-product-to-cart-button button">Add to cart</div>
+      <div>{props.children}</div>
     </div>
   </div>
 );

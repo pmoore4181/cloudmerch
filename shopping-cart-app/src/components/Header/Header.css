@@ -12,6 +12,10 @@
 .logo{
 	margin-left: 40px;
 }
+.search{
+	border: none !important;
+}
+
 .title{
 	color: #98B7C8;
 }
@@ -48,6 +52,7 @@ button.search{
 	font-size: 1em;
 	padding: 0 15px;
 	color: #9EC7DD;
+	border: none;
 
 
 }
