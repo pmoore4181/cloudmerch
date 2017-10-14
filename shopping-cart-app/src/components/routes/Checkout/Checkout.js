@@ -115,7 +115,7 @@ class Checkout extends Component {
               img= {item.img}
               name={item.name}
               price= {item.price}
-              // quantity={cartItems.quantity}
+              quantity={1}
               />
             )}
           </div>
@@ -150,7 +150,7 @@ class Checkout extends Component {
               <div className='field' >        
               <div className='label'>
                   Total:
-                  <span className='amount'>  $300</span>
+                  <span className='amount'>  $</span>
                 </div>
 
             </div>
