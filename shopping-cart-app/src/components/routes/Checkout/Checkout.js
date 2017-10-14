@@ -34,6 +34,7 @@ class Checkout extends Component {
             {this.state.cartItems.map(cartItems =>
               <Cart
               id={cartItems.id}
+              key={cartItems.id}
               removeItem={this.removeItem}
               itemImg= {cartItems.itemImg}
               name={cartItems.name}
