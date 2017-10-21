@@ -10,6 +10,7 @@ This is a website where users can signup as a seller with either Google OAuth, o
 * node.js
 * express.js
 * passport.js
+* google+ API
 * mongodb
 * heroku
 
