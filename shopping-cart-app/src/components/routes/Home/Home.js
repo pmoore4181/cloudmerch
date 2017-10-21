@@ -9,12 +9,13 @@ class Home extends Component {
     constructor(props) {
         super(props);
         this.handleClick = this.handleClick.bind(this);
+        this.state = { stores: [], query: '' };
     }
 
-    state = {
-        stores: [],
-        query: ''
-    }
+    // state = {
+    //     stores: [],
+    //     query: ''
+    // }
 
     componentDidMount() {
         fetch('/stores/products', {method: 'GET'})
@@ -34,7 +35,7 @@ class Home extends Component {
          <Header />
          <Wrapper>
 
-         {this.state.stores.map((store)=>
+         {this.state.stores && this.state.stores.length && this.state.stores.map((store)=>
             <StoreCard 
             key={store._id}
             id={store._id}
